@@ -8,10 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dd04fa8-f32f-4137-8bfe-28245951ea36" name="Changes" comment="1">
+    <list default="true" id="9dd04fa8-f32f-4137-8bfe-28245951ea36" name="Changes" comment="add 1st page maquette">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/IndexLayout.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outlines.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/outlines.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "lab-1",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/moroz/WebstormProjects/WebApp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -74,7 +76,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "copyright",
+    "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -97,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694969342595</updated>
       <workItem from="1694969346044" duration="12012000" />
+      <workItem from="1695118451684" duration="7279000" />
     </task>
     <task id="LOCAL-00001" summary="feat: create basic site structure">
       <option name="closed" value="true" />
@@ -122,7 +125,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694999733494</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="reformat index page">
+      <option name="closed" value="true" />
+      <created>1695063143593</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695063143593</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix files structure">
+      <option name="closed" value="true" />
+      <created>1695063170273</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695063170273</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +162,9 @@
     <MESSAGE value="init" />
     <MESSAGE value="feat: create basic site structure" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="reformat index page" />
+    <MESSAGE value="fix files structure" />
+    <MESSAGE value="add 1st page maquette" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 1st page maquette" />
   </component>
 </project>

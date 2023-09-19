@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/outlines.css">
     <title>SoundStats</title>
 </head>
+
 <body>
 <header>
     <div>
@@ -23,6 +25,7 @@
         <a href="#"><img src="images/spotify_icon_small.png" alt="">Войти через Spotify</a>
     </div>
 </header>
+
 <main>
     <section>
         <h1>Добро пожаловать в SoundStats</h1>
@@ -33,16 +36,66 @@
         <aside>
             <p>
                 Для получения доступа ко всему функционалу вам необходим
-                аккаунт Spotify <strong>с активной подпиской Spotify Premium</strong>.<i>Тем не менее</i>,
+                аккаунт Spotify <strong>с активной подпиской Spotify Premium</strong>. <i>Тем не менее</i>,
                 даже не имея такового, вы все равно сможете изучать мировые тренды в музыке
             </p>
         </aside>
     </section>
+
+    <section>
+        <h2>Топ-5 треков <time datetime="2023-09-19">сегодня</time></h2>
+        <div>
+            Используя данный сервис вы сможете просматривать наиболее популярные треки. Список обновляется ежедневно
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Обложка</th>
+                <th>Описание</th>
+                <th>Ссылка</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="https://i.scdn.co/image/ab67616d000048517acee948ecac8380c1b6ce30"></td>
+                    <td>Paint The Town Red - Doja Cat</td>
+                    <td><a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7">Открыть</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img src="https://i.scdn.co/image/ab67616d00004851bf5cce5a0e1ed03a626bdd74"></td>
+                    <td>Seven (feat. Latto) (Explicit Ver.) - Jung Kook, Latto</td>
+                    <td><a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo">Открыть</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img src="https://i.scdn.co/image/ab67616d00004851e787cffec20aa2a396a61647"></td>
+                    <td>Cruel Summer - Taylor Swift</td>
+                    <td><a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr">Открыть</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img src="https://i.scdn.co/image/ab67616d000048513b2df9103b8b1bad69ec4aa9"></td>
+                    <td>Slime You Out (feat. SZA) - Drake, SZA</td>
+                    <td><a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV">Открыть</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img src="https://i.scdn.co/image/ab67616d00004851e85259a1cae29a8d91f2093d"></td>
+                    <td>vampire - Olivia Rodrigo</td>
+                    <td><a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS">Открыть</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
     <section>
         <h2>Особенности сервиса</h2>
         <ul>
-            <li>Просмотр самых популярных треков в мире...</li>
-            <li>и у пользователя</li>
+            <li>Просмотр самых популярных треков в мире (без авторизации)</li>
+            <li>Просмотр самых популярных треков и у пользователя</li>
             <li>Создание плейлистов по наиболее популярным трекам</li>
             <li>Изучение жанровых предпочтений пользователя</li>
             <li>Составление персонализированных плейлистов, используя различные алгоритмы</li>
@@ -50,6 +103,7 @@
         </ul>
     </section>
 </main>
+
 <footer>
     <div>
         Создано с использованием <a href="https://developer.spotify.com">Spotify API</a><br>
@@ -64,5 +118,6 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
             </pre>
     </div>
 </footer>
+
 </body>
 </html>
