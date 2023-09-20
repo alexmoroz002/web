@@ -1,3 +1,11 @@
+:root {
+    --text: #000000;
+    --background: #e7f5fd;
+    --primary: #105684;
+    --secondary: #cbe9fb;
+    --accent: #2282bf;
+}
+
 .nav_menu_buttons {
     list-style-type: none;
     margin: 0;
@@ -6,7 +14,7 @@
 
 .nav_button {
     display: inline-block;
-    background-color: #ebf3fa;
+    background-color: var(--secondary);
     border-radius: 10px;
     height: 41px;
     vertical-align: middle;
@@ -30,7 +38,8 @@
 
 .login_button {
     display: inline-block;
-    background-color: #98c1e6;
+    background-color: var(--primary);
+    color: var(--background);
     border-radius: 20px;
     height: 41px;
     padding-right: 10px;
@@ -50,8 +59,9 @@
 
 body {
     margin: 0;
-    color: #050d15;
-    background-color: #deebf7;
+    color: var(--text);
+    background-color: var(--background);
+    font-family: 'Inter', sans-serif;
 }
 
 main {
@@ -68,8 +78,8 @@ footer {
 }
 
 .footer_box {
-    background-color: #050d15;
-    color: #deebf7;
+    background-color: var(--text);
+    color: var(--background);
     border-radius: 10px 10px 0 0 ;
     padding: 15px 30px;
 }
@@ -81,5 +91,14 @@ footer {
 }
 
 
-a {text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
+.contrast_link {
+    color: var(--background);
+}
+
+.link {
+    color: var(--text);
+}
