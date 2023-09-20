@@ -9,20 +9,31 @@
 
 <body>
 <header>
-    <div>
+    <div class="logo">
         <a href="index.html">
-            <img src="images/logo.png" alt="">
-            <h1>SoundStats</h1>
+            <img src="images/logo.png" alt="" class="icon">
+            <h1 class="name">SoundStats</h1>
         </a>
     </div>
-    <nav>
-        <ul>
-            <li><a href="#">Статистика</a></li>
-            <li><a href="#">Плейлисты</a></li>
+    <nav class="nav_menu">
+        <ul class="nav_menu_buttons">
+            <li class="nav_button">
+                <div class="stats_menu_button"><a href="#">
+                    <span class="nav_button_text">Статистика</span>
+                </a></div>
+            </li>
+            <li class="nav_button">
+                <div class="playlists_menu_button"><a href="#">
+                    <span class="nav_button_text">Плейлисты</span>
+                </a></div>
+            </li>
         </ul>
     </nav>
-    <div>
-        <a href="#"><img src="images/spotify_icon_small.png" alt="">Войти через Spotify</a>
+    <div class="login_button">
+        <a href="#">
+            <img src="images/spotify_icon.png" alt="" class="spotify_logo_small">
+            <span class="nav_button_text">Войти через Spotify</span>
+        </a>
     </div>
 </header>
 
@@ -43,7 +54,9 @@
     </section>
 
     <section>
-        <h2>Топ-5 треков <time datetime="2023-09-19">сегодня</time></h2>
+        <h2>Топ-5 треков
+            <time datetime="2023-09-19">сегодня</time>
+        </h2>
         <div>
             Используя данный сервис вы сможете просматривать наиболее популярные треки. Список обновляется ежедневно
         </div>
@@ -57,36 +70,46 @@
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d000048517acee948ecac8380c1b6ce30"></td>
-                    <td>Paint The Town Red - Doja Cat</td>
-                    <td><div><a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7">Открыть</a></div></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d00004851bf5cce5a0e1ed03a626bdd74"></td>
-                    <td>Seven (feat. Latto) (Explicit Ver.) - Jung Kook, Latto</td>
-                    <td><div><a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo">Открыть</a></div></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d00004851e787cffec20aa2a396a61647"></td>
-                    <td>Cruel Summer - Taylor Swift</td>
-                    <td><div><a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr">Открыть</a></div></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d000048513b2df9103b8b1bad69ec4aa9"></td>
-                    <td>Slime You Out (feat. SZA) - Drake, SZA</td>
-                    <td><div><a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV">Открыть</a></div></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d00004851e85259a1cae29a8d91f2093d"></td>
-                    <td>vampire - Olivia Rodrigo</td>
-                    <td><div><a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS">Открыть</a></div></td>
-                </tr>
+            <tr>
+                <td>1</td>
+                <td><img src="https://i.scdn.co/image/ab67616d000048517acee948ecac8380c1b6ce30"></td>
+                <td>Paint The Town Red - Doja Cat</td>
+                <td>
+                    <div><a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7">Открыть</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="https://i.scdn.co/image/ab67616d00004851bf5cce5a0e1ed03a626bdd74"></td>
+                <td>Seven (feat. Latto) (Explicit Ver.) - Jung Kook, Latto</td>
+                <td>
+                    <div><a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo">Открыть</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="https://i.scdn.co/image/ab67616d00004851e787cffec20aa2a396a61647"></td>
+                <td>Cruel Summer - Taylor Swift</td>
+                <td>
+                    <div><a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr">Открыть</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><img src="https://i.scdn.co/image/ab67616d000048513b2df9103b8b1bad69ec4aa9"></td>
+                <td>Slime You Out (feat. SZA) - Drake, SZA</td>
+                <td>
+                    <div><a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV">Открыть</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><img src="https://i.scdn.co/image/ab67616d00004851e85259a1cae29a8d91f2093d"></td>
+                <td>vampire - Olivia Rodrigo</td>
+                <td>
+                    <div><a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS">Открыть</a></div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </section>
@@ -105,17 +128,19 @@
 </main>
 
 <footer>
-    <div>
-        Создано с использованием <a href="https://developer.spotify.com">Spotify API</a><br>
-        Данное приложение никак не связано с компанией Spotify AB или её партнерами <br>
-    </div>
-    <div>
-            <pre>
-      |\      _,,,---,,_
-ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\ (  `'-'
-    '---''(_/--'  `-'\_)
-            </pre>
+    <div class="footer_box">
+        <div>
+            Создано с использованием <a href="https://developer.spotify.com">Spotify API</a><br>
+            Данное приложение никак не связано с компанией Spotify AB или её партнерами <br>
+        </div>
+        <div>
+                <pre>
+          |\      _,,,---,,_
+    ZZZzz /,`.-'`'    -.  ;-;;,_
+         |,4-  ) )-,_. ,\ (  `'-'
+        '---''(_/--'  `-'\_)
+                </pre>
+        </div>
     </div>
 </footer>
 

@@ -1,0 +1,85 @@
+.nav_menu_buttons {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_button {
+    display: inline-block;
+    background-color: #ebf3fa;
+    border-radius: 10px;
+    height: 41px;
+    vertical-align: middle;
+    padding: 0 15px;
+}
+
+.icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+
+.name {
+    display: inline-block;
+    color: black;
+}
+
+.logo {
+
+}
+
+.login_button {
+    display: inline-block;
+    background-color: #98c1e6;
+    border-radius: 20px;
+    height: 41px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.nav_menu {
+    display: inline-block;
+}
+
+.spotify_logo_small {
+    float: left;
+    height: 21px;
+    width: 21px;
+    margin: 10px;
+}
+
+body {
+    margin: 0;
+    color: #050d15;
+    background-color: #deebf7;
+}
+
+main {
+    padding: 15px;
+}
+
+header {
+    border-radius: 0 0 10px 10px;
+    padding: 15px;
+}
+
+footer {
+    padding: 0 50px;
+}
+
+.footer_box {
+    background-color: #050d15;
+    color: #deebf7;
+    border-radius: 10px 10px 0 0 ;
+    padding: 15px 30px;
+}
+
+.nav_button_text {
+    height: 41px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+a {text-decoration: none; }
+
