@@ -33,7 +33,7 @@
 }
 
 .logo {
-
+    display: inline-block;
 }
 
 .login_button {
@@ -44,6 +44,7 @@
     height: 41px;
     padding-right: 10px;
     vertical-align: middle;
+    horiz-align: right;
 }
 
 .nav_menu {
@@ -57,23 +58,23 @@
     margin: 10px;
 }
 
-body {
+.body {
     margin: 0;
     color: var(--text);
     background-color: var(--background);
     font-family: 'Inter', sans-serif;
 }
 
-main {
+.main {
     padding: 15px;
 }
 
-header {
+.header {
     border-radius: 0 0 10px 10px;
     padding: 15px;
 }
 
-footer {
+.footer {
     padding: 0 50px;
 }
 
@@ -101,4 +102,14 @@ a {
 
 .link {
     color: var(--text);
+}
+
+.album_cover {
+    box-shadow: 5px 5px 5px var(--accent);
+}
+
+.top_tracks {
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
 }
