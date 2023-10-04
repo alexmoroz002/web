@@ -120,15 +120,5 @@ a {
 
 .top_tracks_item {
     vertical-align: middle;
-}
-
-.contrast_button1 {
-    display: inline-flex;
-    background-color: var(--primary);
-    color: var(--background);
-    border-radius: 20px;
-    height: 41px;
-    padding-right: 10px;
-    vertical-align: middle;
-    align-items: center;
+    text-align: center;
 }
