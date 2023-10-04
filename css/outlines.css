@@ -23,20 +23,23 @@
 
 .icon {
     display: inline-block;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
 }
 
 .name {
     display: inline-block;
-    color: black;
+    color: var(--text);
+    vertical-align: middle;
 }
 
 .logo {
     display: inline-block;
+    vertical-align: middle;
 }
 
-.login_button {
+.contrast_button {
     display: inline-block;
     background-color: var(--primary);
     color: var(--background);
@@ -44,7 +47,6 @@
     height: 41px;
     padding-right: 10px;
     vertical-align: middle;
-    horiz-align: right;
 }
 
 .nav_menu {
@@ -55,7 +57,7 @@
     float: left;
     height: 21px;
     width: 21px;
-    margin: 10px;
+    padding: 10px;
 }
 
 .body {
@@ -65,17 +67,13 @@
     font-family: 'Inter', sans-serif;
 }
 
-.main {
-    padding: 15px;
-}
-
 .header {
     border-radius: 0 0 10px 10px;
-    padding: 15px;
+    padding: 15px 50px;
 }
 
 .footer {
-    padding: 0 50px;
+    margin: 0 50px;
 }
 
 .footer_box {
@@ -111,5 +109,14 @@ a {
 .top_tracks {
     border: 1px solid;
     border-radius: 10px;
-    background-color: white;
+    background-color: #E0EDF5;
+    width: 100%;
+}
+
+.main_container {
+    margin: 0 100px;
+}
+
+.top_tracks_item {
+    vertical-align: middle;
 }
