@@ -210,3 +210,78 @@ a {
 .top_tracks_item:nth-child(even) {
     background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
 }
+
+#ham_toggle {
+    opacity: 0;
+    position: absolute;
+}
+
+.ham_button {
+    display: none;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.ham_button > span,
+.ham_button > span::before,
+.ham_button > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+}
+.ham_button > span::before {
+    content: '';
+    top: -8px;
+}
+.ham_button > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu_box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 60px 0;
+    list-style: none;
+    text-align: center;
+    background-color: var(--secondary);
+    box-shadow: var(--accent) -1px 0 10px;
+}
+
+.menu_item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-size: larger;
+    font-weight: 600;
+}
+.menu_item:hover {
+    background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
+}
+
+#ham_toggle:checked ~ .menu_box {
+    visibility: visible;
+    right: 0;
+}
+
+@media screen and (max-width: 700px) {
+    .nav_menu, .login_button {
+        display: none;
+    }
+    .ham_button {
+        display: flex;
+    }
+}
