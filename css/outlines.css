@@ -19,6 +19,7 @@
     height: 41px;
     vertical-align: middle;
     padding: 0 15px;
+    margin: 0 5px;
 }
 
 .icon {
@@ -62,7 +63,7 @@
 }
 
 .body {
-    margin: 0;
+    margin: 85px 0 0 0;
     color: var(--text);
     background-color: var(--background);
     font-family: 'Inter', sans-serif;
@@ -70,7 +71,17 @@
 
 .header {
     border-radius: 0 0 10px 10px;
-    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    background-color: var(--background);
+    top: 0;
+}
+
+.header_box {
+    margin: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer {
@@ -81,10 +92,11 @@
     background-color: var(--text);
     color: var(--background);
     border-radius: 10px 10px 0 0 ;
-    padding: 15px 30px;
+    padding: 5px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: smaller;
 }
 
 .nav_button_text {
@@ -111,7 +123,6 @@ a {
 }
 
 .top_tracks {
-    border: 0px solid;
     border-radius: 10px;
     background-color: var(--secondary);
     width: 100%;
@@ -146,6 +157,7 @@ a {
 .features_img {
     width: 200px;
     height: 200px;
+    margin: 0 10px;
 }
 
 .features_item:nth-child(even) {
@@ -156,4 +168,7 @@ a {
     align-self: center;
     text-align: center;
     flex-grow: 1;
+    font-size: large;
+    font-weight: 600;
+    font-family: "Trebuchet MS", sans-serif;
 }
