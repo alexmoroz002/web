@@ -10,6 +10,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: inline-flex;
 }
 
 .nav_button {
@@ -18,7 +19,7 @@
     border-radius: 10px;
     height: 41px;
     vertical-align: middle;
-    padding: 0 15px;
+    padding: 0 10px;
     margin: 0 5px;
 }
 
@@ -27,17 +28,19 @@
     width: 48px;
     height: 48px;
     vertical-align: middle;
+    margin: 5px;
 }
 
 .name {
     display: inline-block;
     color: var(--text);
     vertical-align: middle;
+    font-size: 150%;
 }
 
-.logo {
-    display: inline-block;
-    vertical-align: middle;
+.logo_wrap {
+    display: inline-flex;
+    align-items: center;
 }
 
 .contrast_button {
@@ -46,9 +49,10 @@
     color: var(--background);
     border-radius: 20px;
     height: 41px;
-    padding-right: 10px;
+    padding-right: 15px;
     vertical-align: middle;
     align-items: center;
+    min-width: 138px;
 }
 
 .nav_menu {
@@ -63,10 +67,10 @@
 }
 
 .body {
-    margin: 85px 0 0 0;
+    margin: 80px 0 0 0;
     color: var(--text);
     background-color: var(--background);
-    font-family: 'Inter', sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 .header {
@@ -78,10 +82,10 @@
 }
 
 .header_box {
-    margin: 0 30px;
+    margin: 5px 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .footer {
@@ -126,11 +130,11 @@ a {
     border-radius: 10px;
     background-color: var(--secondary);
     width: 100%;
-    min-width: 450px;
 }
 
 .main_container {
-    margin: 0 100px;
+    margin: 0 50px;
+    min-width: 450px;
 }
 
 .top_tracks_item {
@@ -170,5 +174,19 @@ a {
     flex-grow: 1;
     font-size: large;
     font-weight: 600;
-    font-family: "Trebuchet MS", sans-serif;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.name_colored {
+    background: -webkit-linear-gradient(20deg, #00a2ff, #8046e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contrast_button_text {
+    text-align: center;
+    font-size: 90%;
 }
