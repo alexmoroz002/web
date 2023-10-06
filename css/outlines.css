@@ -20,7 +20,7 @@
     height: 41px;
     vertical-align: middle;
     padding: 0 10px;
-    margin: 0 5px;
+    margin: 0 7px;
 }
 
 .icon {
@@ -130,6 +130,9 @@ a {
     border-radius: 10px;
     background-color: var(--secondary);
     width: 100%;
+    padding: 5px 0;
+    border-collapse: separate;
+    border-spacing: 0 5px;
 }
 
 .main_container {
@@ -140,6 +143,7 @@ a {
 .top_tracks_item {
     vertical-align: middle;
     text-align: center;
+    background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
 }
 
 .features {
@@ -189,4 +193,20 @@ a {
 .contrast_button_text {
     text-align: center;
     font-size: 90%;
+}
+
+.top_tracks_item > td {
+    padding: 0 10px;
+}
+
+.top_tracks_item>td:first-child, .top_tracks_item>th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.top_tracks_item>td:last-child, .top_tracks_item>th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.top_tracks_item:nth-child(even) {
+    background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
 }
