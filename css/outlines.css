@@ -6,6 +6,10 @@
     --accent: #2282bf;
 }
 
+a {
+    text-decoration: none;
+}
+
 .nav_menu_buttons {
     list-style-type: none;
     margin: 0;
@@ -109,11 +113,6 @@
     vertical-align: middle;
 }
 
-
-a {
-    text-decoration: none;
-}
-
 .contrast_link {
     color: var(--background);
 }
@@ -138,6 +137,7 @@ a {
 .main_container {
     margin: 0 50px;
     min-width: 450px;
+    padding: 0 10px;
 }
 
 .top_tracks_item {
@@ -277,11 +277,16 @@ a {
     right: 0;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
     .nav_menu, .login_button {
         display: none;
     }
     .ham_button {
         display: flex;
+    }
+
+    .main_container {
+        width: 520px;
+        margin: 0 auto;
     }
 }
