@@ -61,6 +61,7 @@ a {
 
 .nav_menu {
     display: inline-block;
+    height: 41px;
 }
 
 .spotify_logo_small {
@@ -264,7 +265,7 @@ a {
 .menu_item {
     display: block;
     padding: 12px 24px;
-    color: #333;
+    color: var(--text);
     font-size: larger;
     font-weight: 600;
 }
@@ -277,7 +278,7 @@ a {
     right: 0;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 700px) {
     .nav_menu, .login_button {
         display: none;
     }
@@ -286,7 +287,7 @@ a {
     }
 
     .main_container {
-        width: 520px;
+        width: 565px;
         margin: 0 auto;
     }
 }
