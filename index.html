@@ -7,115 +7,190 @@
     <title>SoundStats</title>
 </head>
 
-<body>
-<header>
-    <div>
-        <a href="index.html">
-            <img src="images/logo.png" alt="">
-            <h1>SoundStats</h1>
+<body class="body">
+<header class="header">
+    <div class="header_box">
+        <div>
+            <a href="index.html" class="logo_wrap">
+                <img src="images/logo.svg" alt="" class="icon">
+                <h1 class="name">SoundStats</h1>
+            </a>
+        </div>
+        <nav class="nav_menu">
+            <ul class="nav_menu_buttons">
+                <li class="nav_button">
+                    <div class="stats_menu_button">
+                        <a href="#" class="link">
+                            <span class="nav_button_text">Статистика</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav_button">
+                    <div class="playlists_menu_button">
+                        <a href="#"  class="link">
+                            <span class="nav_button_text">Плейлисты</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <a href="#" class="contrast_link login_button">
+            <div class="contrast_button">
+                <img src="images/spotify_icon_alt.svg" alt="" class="spotify_logo_small">
+                <span class="contrast_button_text">Войти через Spotify</span>
+            </div>
         </a>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">Статистика</a></li>
-            <li><a href="#">Плейлисты</a></li>
+        <input type="checkbox" id="ham_toggle">
+        <label class="ham_button" for="ham_toggle">
+            <span></span>
+        </label>
+        <ul class="menu_box">
+            <li><a class="menu_item" href="#">Войти</a></li>
+            <li><a class="menu_item" href="#">Статистика</a></li>
+            <li><a class="menu_item" href="#">Плейлисты</a></li>
         </ul>
-    </nav>
-    <div>
-        <a href="#"><img src="images/spotify_icon_small.png" alt="">Войти через Spotify</a>
     </div>
 </header>
 
-<main>
-    <section>
-        <h1>Добро пожаловать в SoundStats</h1>
-        <p>
-            Веб-приложение, тесно связанное с вашим аккаунтом Spotify.
-            Управляйте вашими плейлистами, изучайте самые популярные треки и многое другое!
-        </p>
-        <aside>
+<main class="main">
+    <div class="main_container">
+        <section class="welcome">
+            <h1>Добро пожаловать в <span class="name_colored">SoundStats</span></h1>
             <p>
-                Для получения доступа ко всему функционалу вам необходим
-                аккаунт Spotify <strong>с активной подпиской Spotify Premium</strong>. <i>Тем не менее</i>,
-                даже не имея такового, вы все равно сможете изучать самые популярные треки
+                Веб-приложение, тесно связанное с вашим аккаунтом Spotify.
+                Управляйте вашими плейлистами, изучайте самые популярные треки и многое другое!
             </p>
-        </aside>
-    </section>
+        </section>
 
-    <section>
-        <h2>Топ-5 треков <time datetime="2023-09-19">сегодня</time></h2>
-        <div>
-            Используя данный сервис вы сможете просматривать наиболее популярные треки. Список обновляется ежедневно
-        </div>
-        <table>
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Обложка</th>
-                <th>Описание</th>
-                <th>Ссылка</th>
-            </tr>
-            </thead>
-            <tbody>
+        <section>
+            <h2>Топ-5 треков
+                <time datetime="2023-09-19">сегодня</time>
+            </h2>
+            <table class="top_tracks">
+                <thead>
                 <tr>
+                    <th>#</th>
+                    <th>Обложка</th>
+                    <th>Описание</th>
+                    <th>Ссылка</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="top_tracks_item">
                     <td>1</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d000048517acee948ecac8380c1b6ce30"></td>
+                    <td><img src="https://i.scdn.co/image/ab67616d000048517acee948ecac8380c1b6ce30" class="album_cover" alt=""></td>
                     <td>Paint The Town Red - Doja Cat</td>
-                    <td><div><a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7">Открыть</a></div></td>
+                    <td>
+                        <a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7" class="contrast_link">
+                            <div class="contrast_button">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="spotify_logo_small">
+                                <span class="contrast_button_text">Открыть в Spotify</span>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
-                <tr>
+                <tr class="top_tracks_item">
                     <td>2</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d00004851bf5cce5a0e1ed03a626bdd74"></td>
+                    <td><img src="https://i.scdn.co/image/ab67616d00004851bf5cce5a0e1ed03a626bdd74" class="album_cover" alt=""></td>
                     <td>Seven (feat. Latto) (Explicit Ver.) - Jung Kook, Latto</td>
-                    <td><div><a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo">Открыть</a></div></td>
+                    <td>
+                        <a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo" class="contrast_link">
+                            <div class="contrast_button">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="spotify_logo_small">
+                                <span class="contrast_button_text">Открыть в Spotify</span>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
-                <tr>
+                <tr class="top_tracks_item">
                     <td>3</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d00004851e787cffec20aa2a396a61647"></td>
+                    <td><img src="https://i.scdn.co/image/ab67616d00004851e787cffec20aa2a396a61647" class="album_cover" alt=""></td>
                     <td>Cruel Summer - Taylor Swift</td>
-                    <td><div><a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr">Открыть</a></div></td>
+                    <td>
+                        <a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr" class="contrast_link">
+                            <div class="contrast_button">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="spotify_logo_small">
+                                <span class="contrast_button_text">Открыть в Spotify</span>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
-                <tr>
+                <tr class="top_tracks_item">
                     <td>4</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d000048513b2df9103b8b1bad69ec4aa9"></td>
+                    <td><img src="https://i.scdn.co/image/ab67616d000048513b2df9103b8b1bad69ec4aa9" class="album_cover" alt=""></td>
                     <td>Slime You Out (feat. SZA) - Drake, SZA</td>
-                    <td><div><a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV">Открыть</a></div></td>
+                    <td>
+                        <a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV" class="contrast_link">
+                            <div class="contrast_button">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="spotify_logo_small">
+                                <span class="contrast_button_text">Открыть в Spotify</span>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
-                <tr>
+                <tr class="top_tracks_item">
                     <td>5</td>
-                    <td><img src="https://i.scdn.co/image/ab67616d00004851e85259a1cae29a8d91f2093d"></td>
+                    <td><img src="https://i.scdn.co/image/ab67616d00004851e85259a1cae29a8d91f2093d" class="album_cover" alt=""></td>
                     <td>vampire - Olivia Rodrigo</td>
-                    <td><div><a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS">Открыть</a></div></td>
+                    <td>
+                        <a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS" class="contrast_link">
+                            <div class="contrast_button">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="spotify_logo_small">
+                                <span class="contrast_button_text">Открыть в Spotify</span>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
-            </tbody>
-        </table>
-    </section>
+                </tbody>
+            </table>
+        </section>
 
-    <section>
-        <h2>Особенности сервиса</h2>
-        <ul>
-            <li>Просмотр самых популярных треков в мире (без авторизации)</li>
-            <li>Просмотр самых популярных треков и у пользователя</li>
-            <li>Создание плейлистов по наиболее популярным трекам</li>
-            <li>Изучение жанровых предпочтений пользователя</li>
-            <li>Составление персонализированных плейлистов, используя различные алгоритмы</li>
-            <li>и многое другое! <sub>(надеюсь)</sub></li>
-        </ul>
-    </section>
+        <article class="features">
+            <h2>Особенности</h2>
+            <article class="features_item">
+                <div class="features_item_text">Просматривайте свои наиболее прослушиваемые треки и исполнителей</div>
+                <img src="images/ranking.svg" class="features_img" alt="">
+            </article>
+            <article class="features_item">
+                <div class="features_item_text">Изучайте свои жанровые предпочтения</div>
+                <img src="images/music_genres.svg" class="features_img" alt="">
+            </article>
+            <article class="features_item">
+                <div class="features_item_text">Создавайте персонализированные плейлисты используя различные алгоритмы</div>
+                <img src="images/album.svg" class="features_img" alt="">
+            </article>
+            <article class="features_item">
+                <div class="features_item_text">Создавайте плейлисты на основе самых популярных треков в мире</div>
+                <img src="images/playlist.svg" class="features_img" alt="">
+            </article>
+            <article class="features_item">
+                <div class="features_item_text">И многое другое!</div>
+                <img src="images/features_list.svg" class="features_img" alt="">
+            </article>
+            <aside>
+                <p>
+                    Для получения доступа ко всему функционалу вам необходим
+                    аккаунт Spotify <strong>с активной подпиской Spotify Premium</strong>. <i>Тем не менее</i>,
+                    даже не имея такового, вы все равно сможете изучать самые популярные треки
+                </p>
+            </aside>
+        </article>
+    </div>
 </main>
 
-<footer>
-    <div>
-        Создано с использованием <a href="https://developer.spotify.com">Spotify API</a><br>
-        Данное приложение никак не связано с компанией Spotify AB или её партнерами <br>
-    </div>
-    <div>
-            <pre>
-      |\      _,,,---,,_
-ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\ (  `'-'
-    '---''(_/--'  `-'\_)
-            </pre>
+<footer class="footer">
+    <div class="footer_box">
+        <div class="copyright_text">
+            Создано с использованием <a href="https://developer.spotify.com" class="contrast_link">Spotify API</a><br>
+            Данное приложение никак не связано с компанией Spotify AB или её партнерами <br>
+        </div>
+        <div class="ascii_pic">
+                <pre>
+          |\      _,,,---,,_
+    ZZZzz /,`.-'`'    -.  ;-;;,_
+         |,4-  ) )-,_. ,\ (  `'-'
+        '---''(_/--'  `-'\_)</pre>
+        </div>
     </div>
 </footer>
 
