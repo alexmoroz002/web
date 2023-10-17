@@ -269,6 +269,7 @@ a {
     font-size: larger;
     font-weight: 600;
 }
+
 .menu_item:hover {
     background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
 }
@@ -278,6 +279,10 @@ a {
     right: 0;
 }
 
+.copyright_text {
+    margin: 10px 0;
+}
+
 @media screen and (max-width: 700px) {
     .nav_menu, .login_button {
         display: none;
@@ -285,9 +290,15 @@ a {
     .ham_button {
         display: flex;
     }
-
+    .ascii_pic {
+        display: none;
+    }
     .main_container {
         width: 565px;
+        margin: 0 auto;
+    }
+    .footer {
+        width: 585px;
         margin: 0 auto;
     }
 }
