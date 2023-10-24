@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/outlines.css">
+    <script src="js/loadTime.js"></script>
+    <title>Статистика - SoundStats</title>
+</head>
+<body class="page page_header_fixed">
+<header class="header page__header header_fixed">
+    <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="" class="logo__icon">
+        <h2 class="logo__name">SoundStats</h2>
+    </a>
+    <nav class="nav-menu">
+        <ul class="menu">
+            <li class="nav-menu__item">
+                <a class="nav-button menu__nav-button">
+                    <span class="nav-button__text nav-button__text_active">Статистика</span>
+                </a>
+            </li>
+            <li class="nav-menu__item">
+                <a href="playlists.html" class="nav-button menu__nav-button">
+                    <span class="nav-button__text">Плейлисты</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <a href="#" class="button contrast_button">
+        <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+        <span class="button__text">Войти через Spotify</span>
+    </a>
+    <input type="checkbox" id="ham-toggle">
+    <label class="ham-button" for="ham-toggle">
+        <span></span>
+    </label>
+    <nav class="ham-menu">
+        <ul class="menu">
+            <li class="ham-menu__item">
+                <a href="#" class="ham-menu__link">Войти</a>
+            </li>
+            <li class="ham-menu__item">
+                <a href="index.html" class="ham-menu__link">Главная</a>
+            </li>
+            <li class="ham-menu__item ham-menu__item_active">
+                <a class="ham-menu__link">Статистика</a>
+            </li>
+            <li class="ham-menu__item">
+                <a href="playlists.html" class="ham-menu__link">Плейлисты</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<footer class="footer page__footer">
+    <div class="footer__copyright">
+        Создано (будет) с использованием <a href="https://developer.spotify.com" class="link">Spotify API</a><br>
+        Данное приложение никак не связано с компанией Spotify AB или её партнерами <br> <br>
+
+        Время загрузки страницы <span id="load-time"></span>мс
+    </div>
+    <div class="footer__ascii">
+            <pre>
+      |\      _,,,---,,_
+ZZZzz /,`.-'`'    -.  ;-;;,_
+     |,4-  ) )-,_. ,\ (  `'-'
+    '---''(_/--'  `-'\_)</pre>
+    </div>
+</footer>
+
+</body>
+</html>
