@@ -12,20 +12,19 @@ a {
 }
 
 .menu {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
-    display: inline-flex;
 }
 
 .nav-button {
-    display: inline-block;
+    display: block;
     background-color: var(--secondary);
-    border-radius: 10px;
-    /*height: 41px;*/
-    /*vertical-align: middle;*/
-    padding: 0 10px;
+    border-radius: 5px;
     color: var(--text);
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .menu__nav-button {
@@ -47,11 +46,6 @@ a {
     font-size: 150%;
 }
 
-.logo_wrap {
-    display: inline-flex;
-    align-items: center;
-}
-
 .contrast_button {
     display: inline-flex;
     background-color: var(--primary);
@@ -61,12 +55,18 @@ a {
     padding-right: 15px;
     vertical-align: middle;
     align-items: center;
-    /* min-width: 138px; */
 }
 
-.nav-menu {
+.nav-menu__item {
     display: inline-block;
-    height: 41px;
+}
+
+.nav-button:hover {
+    background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
+}
+
+.nav-button:active {
+    background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
 }
 
 .button__spotify-logo {
@@ -104,6 +104,7 @@ a {
 .header_fixed {
     position: fixed;
     top: 0;
+    z-index: 1;
 }
 
 .footer {
@@ -118,10 +119,8 @@ a {
     justify-content: space-between;
 }
 
-.nav-button__text {
-    height: 41px;
-    display: table-cell;
-    vertical-align: middle;
+.nav-button__text_active {
+    border-bottom: var(--accent) solid 2px;
 }
 
 .link {
@@ -144,12 +143,13 @@ a {
     align-items: center;
     background-color: var(--secondary);
     border-radius: 20px;
-    padding: 10px 30px;
+    padding: 10px 20px;
 }
 
 .features__img {
     width: 200px;
-    height: 200px;
+    height: auto;
+    aspect-ratio: 1;
     margin: 0 10px;
 }
 
@@ -214,7 +214,6 @@ a {
 }
 
 .ham-menu {
-    display: block;
     position: fixed;
     visibility: hidden;
     top: 0;
@@ -231,19 +230,28 @@ a {
 
 .ham-menu__item {
     display: block;
-    padding: 12px 24px;
+    margin: 12px 36px;
     color: var(--text);
     font-size: larger;
     font-weight: 600;
 }
 
+.ham-menu__item_active {
+    border-left: var(--accent) solid 2px;
+}
+
 .ham-menu__item:hover {
+    background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
+}
+
+.ham-menu__item:active {
     background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
 }
 
-#ham-toggle:checked ~ .ham-menu {
-    visibility: visible;
-    right: 0;
+.ham-menu__link {
+    display: block;
+    cursor: pointer;
+    padding: 8px 0;
 }
 
 .footer__copyright {
@@ -302,15 +310,17 @@ a {
     .footer__ascii {
         display: none;
     }
-    /*.main_container {*/
-    /*    width: 565px;*/
-    /*    margin: 0 auto;*/
-    /*}*/
-    /*.page__footer {*/
-    /*    width: 525px;*/
-    /*    margin: 0 auto;*/
-    /*}*/
+    #ham-toggle:checked ~ .ham-menu {
+        visibility: visible;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
     .features .features__item {
         flex-direction: column-reverse;
+    }
+    .features__img {
+        width: 150px;
     }
 }
