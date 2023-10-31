@@ -28,7 +28,7 @@ a {
 }
 
 .menu__nav-button {
-    margin: 0 7px;
+    margin: 0 3px;
 }
 
 .logo__icon {
@@ -43,7 +43,7 @@ a {
     display: inline-block;
     color: var(--text);
     vertical-align: middle;
-    font-size: 150%;
+    margin: auto 10px auto 0;
 }
 
 .contrast_button {
@@ -55,6 +55,10 @@ a {
     padding-right: 15px;
     vertical-align: middle;
     align-items: center;
+}
+
+.nav-menu {
+    flex-grow: 0;
 }
 
 .nav-menu__item {
@@ -92,13 +96,13 @@ a {
     width: 100%;
     background-color: var(--background);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .page__header {
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .header_fixed {
@@ -112,7 +116,7 @@ a {
     padding: 5px 30px;
     background-color: var(--text);
     color: var(--background);
-    border-radius: 10px 10px 0 0 ;
+    border-radius: 10px 10px 0 0;
     font-size: smaller;
     display: flex;
     align-items: center;
@@ -310,6 +314,9 @@ a {
     .footer__ascii {
         display: none;
     }
+    .table__cover-img {
+        height: 96px;
+    }
     #ham-toggle:checked ~ .ham-menu {
         visibility: visible;
         right: 0;
@@ -322,5 +329,8 @@ a {
     }
     .features__img {
         width: 150px;
+    }
+    .table__cover-img {
+        height: 64px;
     }
 }
