@@ -5,6 +5,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/outlines.css">
     <script src="js/loadTime.js"></script>
+    <script src="js/playlists.js"></script>
     <title>Плейлисты - SoundStats</title>
 </head>
 <body class="page page_header_fixed">
@@ -54,7 +55,72 @@
 </header>
 
 <main class="main">
-
+    <div class="main__inner">
+        <article class="flex-list">
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Персональные рекомендации Spotify
+                </h3>
+                <p class="generator__info">
+                    Базовые рекомендации от алгоритмов Spotify на основе 50 Ваших наиболее прослушиваемых треков за
+                    последние 6 месяцев. В будущем может появиться настройка параметров
+                </p>
+                <button type='button' class="generator__button button button_primary" id="base-gen" onclick="baseGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Smartify Lite
+                </h3>
+                <p class="generator__info">
+                    Облегченная версия одного из (субъективно) лучших алгоритмов для создания плейлистов от ув. <a href="" class="link">Bedmit</a>
+                    с форума <a href="" class="link">4PDA</a>. В отличие от оригинальной версии, из-за некоторых ограничений не ведет статистику
+                    прослушанных треков, что несколько снижает точность. Тем не менее, это значительно повышает стабильность, а
+                    алгоритм все так же отлично подбирает треки
+                </p>
+                <button type='button' class="generator__button button button_primary" id="smartify-gen" onclick="smartifyGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Рекомендации по любимым артистам
+                </h3>
+                <p class="generator__info">
+                    Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
+                </p>
+                <button type='button' class="generator__button button button_primary" id="loved-art-gen" onclick="likedArtistsGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Рекомендации на основе самых популярных треков
+                </h3>
+                <p class="generator__info">
+                    Название говорит само за себя - позволяет создавать плейлист на основе самых популярных треков в мире, используя алгоритмы
+                    Spotify. Зачем - понятия не имею, почему бы и нет
+                </p>
+                <button type='button' class="generator__button button button_primary" id="most-pop-gen" onclick="mostPopularGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    EveryDayMix Lite
+                </h3>
+                <p class="generator__info">
+                    Еще один замечательный алгоритм с <a href="" class="link">4PDA</a> от ув. <a href="" class="link">IceTan</a>. Также не
+                    позволяет вести историю прослушиваний из-за особенностей API, что в теории может отразиться на точности, но убирает
+                    вызываемые этим сбои в работе. В целом стабилен, но необходимо дальнейшее тестирование
+                </p>
+                <button type='button' class="generator__button button button_primary" id="everydaymix-gen" onclick="everydaymixGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+        </article>
+    </div>
 </main>
 
 <footer class="footer page__footer">

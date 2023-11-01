@@ -51,12 +51,16 @@ a {
     height: 41px;
     display: inline-flex;
     border-radius: 20px;
-    align-items: center;
     vertical-align: middle;
+    padding: 0 15px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
 }
 
 .button_iconed {
-    padding-right: 15px;
+    padding-left: 0;
 }
 
 .button_primary {
@@ -167,15 +171,14 @@ a {
 }
 
 .flex-list__item {
-
+    background-color: var(--secondary);
+    border-radius: 20px;
+    padding: 10px 20px;
 }
 
 .feature {
     display: flex;
     align-items: center;
-    background-color: var(--secondary);
-    border-radius: 20px;
-    padding: 10px 20px;
 }
 
 .feature__img {
@@ -185,7 +188,7 @@ a {
     margin: 0 15px;
 }
 
-.flex-list__item:nth-child(even) {
+.feature:nth-child(even) {
     flex-direction: row-reverse;
 }
 
@@ -372,6 +375,30 @@ a {
     font-weight: 700;
 }
 
+.generator {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+        "header header"
+        "info button";
+    gap: 10px;
+    align-items: center;
+}
+
+.generator__header {
+    grid-area: header;
+}
+
+.generator__info {
+    grid-area: info;
+}
+
+.generator__button {
+    grid-area: button;
+}
+
+
 @media screen and (max-width: 700px) {
     .nav-menu, .header .button {
         display: none;
@@ -392,7 +419,7 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-    .flex-list .flex-list__item {
+    .flex-list .feature {
         flex-direction: column-reverse;
     }
     .feature__img {
