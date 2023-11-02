@@ -56,7 +56,17 @@
 
 <main class="main">
     <div class="main__inner">
+        <div class="page-desc">
+            <h1 class="page-desc__header">
+                Создание плейлистов
+            </h1>
+            <div class="page-desc__text">
+                На данной странице вы сможете генерировать новые плейлисты на основе как уже знакомым вам трекам, так и еще
+                не прослушанным используя самые разные алгоритмы
+            </div>
+        </div>
         <article class="flex-list">
+            <h2 class="flex-list__header">Стандартные алгоритмы</h2>
             <section class="flex-list__item generator">
                 <h3 class="generator__header">
                     Персональные рекомендации Spotify
@@ -85,12 +95,27 @@
             </section>
             <section class="flex-list__item generator">
                 <h3 class="generator__header">
-                    Рекомендации по любимым артистам
+                    Рекомендации по любимым исполнителям
                 </h3>
                 <p class="generator__info">
                     Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
                 </p>
                 <button type='button' class="generator__button button button_primary" id="loved-art-gen" onclick="likedArtistsGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+            <h2 class="flex-list__header">Тестовые алгоритмы</h2>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    EveryDayMix Lite
+                </h3>
+                <p class="generator__info">
+                    Еще один замечательный алгоритм с <a href="" class="link">4PDA</a> от ув. <a href="" class="link">IceTan</a>. Также не
+                    позволяет вести историю прослушиваний из-за особенностей API, что в теории может отразиться на точности, но убирает
+                    вызываемые этим сбои в работе
+                </p>
+                <p class="generator__status">Стабилен, но необходимо дальнейшее тестирование</p>
+                <button type='button' class="generator__button button button_primary" id="everydaymix-gen" onclick="everydaymixGenerator()">
                     <span class="button__text">Создать</span>
                 </button>
             </section>
@@ -102,20 +127,8 @@
                     Название говорит само за себя - позволяет создавать плейлист на основе самых популярных треков в мире, используя алгоритмы
                     Spotify. Зачем - понятия не имею, почему бы и нет
                 </p>
+                <p class="generator__status">Не тестировался</p>
                 <button type='button' class="generator__button button button_primary" id="most-pop-gen" onclick="mostPopularGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
-            </section>
-            <section class="flex-list__item generator">
-                <h3 class="generator__header">
-                    EveryDayMix Lite
-                </h3>
-                <p class="generator__info">
-                    Еще один замечательный алгоритм с <a href="" class="link">4PDA</a> от ув. <a href="" class="link">IceTan</a>. Также не
-                    позволяет вести историю прослушиваний из-за особенностей API, что в теории может отразиться на точности, но убирает
-                    вызываемые этим сбои в работе. В целом стабилен, но необходимо дальнейшее тестирование
-                </p>
-                <button type='button' class="generator__button button button_primary" id="everydaymix-gen" onclick="everydaymixGenerator()">
                     <span class="button__text">Создать</span>
                 </button>
             </section>
