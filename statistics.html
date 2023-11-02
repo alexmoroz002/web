@@ -5,6 +5,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/outlines.css">
     <script src="js/loadTime.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
     <title>Статистика - SoundStats</title>
 </head>
 <body class="page page_header_fixed">
@@ -54,7 +55,24 @@
 </header>
 
 <main class="main">
-
+    <div class="main__inner">
+        <div class="stats-container">
+            <div class="stats-container__item user-top-artists">
+                1
+            </div>
+            <div class="stats-container__item user-top-genres" id="top-genres-plot"></div>
+            <div class="stats-container__item user-top-tracks">
+                3
+            </div>
+            <div class="stats-container__item user-like-tracks">
+                4
+            </div>
+            <div class="stats-container__item user-like-artists">
+                5
+            </div>
+            <div class="stats-container__item user-tracks-analysis" id="tracks-analysis-plot"></div>
+        </div>
+    </div>
 </main>
 
 <footer class="footer page__footer">

@@ -161,7 +161,7 @@ a {
 
 .main__inner {
     margin: 0 5vw;
-    padding: 0 15px;
+    padding: 10px 15px;
 }
 
 .flex-list {
@@ -406,6 +406,53 @@ a {
     margin: 0.5rem 0;
     color: var(--accent-alt);
     font-style: italic;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-areas:
+        'top-artists tracks-analysis'
+        'top-tracks top-tracks'
+        'top-genres like-tracks '
+        'like-artists like-tracks';
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 100%;
+    gap: 40px;
+}
+
+.stats-container__item {
+    border-radius: 10px;
+    background-color: var(--secondary);
+    padding: 20px;
+}
+
+.user-top-tracks {
+    grid-area: top-tracks;
+
+}
+
+.user-top-genres {
+    grid-area: top-genres;
+
+}
+
+.user-top-artists {
+    grid-area: top-artists;
+    aspect-ratio: 1;
+}
+
+.user-tracks-analysis {
+    grid-area: tracks-analysis;
+}
+
+
+.user-like-tracks {
+    grid-area: like-tracks;
+}
+
+.user-like-artists {
+    grid-area: like-artists;
 }
 
 
