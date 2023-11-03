@@ -39,6 +39,7 @@ a {
     height: 48px;
     vertical-align: middle;
     margin: 5px;
+    -webkit-user-drag: none;
 }
 
 .logo__name {
@@ -95,6 +96,7 @@ a {
     height: 21px;
     width: 21px;
     padding: 10px;
+    -webkit-user-drag: none;
 }
 
 .page {
@@ -104,7 +106,7 @@ a {
 }
 
 .page_header_fixed {
-    margin: 120px 0 0 0;
+    margin: 100px 0 0 0;
 }
 
 .header {
@@ -168,7 +170,7 @@ a {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    margin: 40px 0;
+    margin: 4vh 0;
 }
 
 .flex-list__item {
@@ -325,7 +327,11 @@ a {
     background-color: var(--secondary);
     width: 100%;
     border-radius: 10px;
-    border-spacing: 0 10px;
+    border-spacing: 0 1vh;
+}
+
+.table_inner {
+    background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
 }
 
 .flex-list__header {
@@ -338,14 +344,14 @@ a {
 }
 
 .table__cover-img {
-    height: 128px;
+    height: 120px;
     box-shadow: 5px 5px 5px var(--accent);
 }
 
 .table__row {
     vertical-align: middle;
     text-align: center;
-    background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
+    background-color: color-mix(in srgb, var(--secondary) 70%, var(--accent));
 }
 
 .table__row>td:first-child, .table__row>th:first-child {
@@ -357,15 +363,15 @@ a {
 }
 
 .table__row:nth-child(even) {
-    background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
+    background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
 }
 
-.table__info-track {
+.table__info-primary {
     font-size: 1.2rem;
     margin: 0.6rem;
 }
 
-.table__info-artist {
+.table__info-secondary {
     font-size: 1.1rem;
     color: var(--text-secondary);
     margin: 0.6rem;
@@ -416,15 +422,18 @@ a {
         'top-genres like-tracks '
         'like-artists like-tracks';
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: 1fr min-content 1fr;
     width: 100%;
-    gap: 40px;
+    gap: 2vw;
+    margin: 3vh 0;
 }
 
 .stats-container__item {
     border-radius: 10px;
     background-color: var(--secondary);
-    padding: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .user-top-tracks {
@@ -434,18 +443,15 @@ a {
 
 .user-top-genres {
     grid-area: top-genres;
-
 }
 
 .user-top-artists {
     grid-area: top-artists;
-    aspect-ratio: 1;
 }
 
 .user-tracks-analysis {
     grid-area: tracks-analysis;
 }
-
 
 .user-like-tracks {
     grid-area: like-tracks;
@@ -453,6 +459,10 @@ a {
 
 .user-like-artists {
     grid-area: like-artists;
+}
+
+#top-genres-plot, #tracks-analysis-plot {
+    flex-grow: 1;
 }
 
 
@@ -490,9 +500,23 @@ a {
     }
     .main__inner {
         margin: 0;
-        padding: 0 2vw;
+        padding: 10px 2vw;
     }
     .page__footer {
         margin: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .stats-container {
+        grid-template-areas:
+            'top-artists'
+            'tracks-analysis'
+            'top-tracks'
+            'top-genres'
+            'like-artists'
+            'like-tracks';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr min-content 1fr;
     }
 }
