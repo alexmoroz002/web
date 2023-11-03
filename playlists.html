@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-menu__item">
-                <a class="nav-button menu__nav-button">
+                <a href="playlists.html" class="nav-button menu__nav-button">
                     <span class="nav-button__text nav-button__text_active">Плейлисты</span>
                 </a>
             </li>
@@ -48,7 +48,7 @@
                 <a href="statistics.html" class="ham-menu__link">Статистика</a>
             </li>
             <li class="ham-menu__item ham-menu__item_active">
-                <a class="ham-menu__link">Плейлисты</a>
+                <a href="playlists.html" class="ham-menu__link">Плейлисты</a>
             </li>
         </ul>
     </nav>
@@ -81,26 +81,17 @@
             </section>
             <section class="flex-list__item generator">
                 <h3 class="generator__header">
-                    Smartify Lite
+                    Smartify (Old) Lite
                 </h3>
                 <p class="generator__info">
-                    Облегченная версия одного из (субъективно) лучших алгоритмов для создания плейлистов от ув. <a href="" class="link">Bedmit</a>
-                    с форума <a href="" class="link">4PDA</a>. В отличие от оригинальной версии, из-за некоторых ограничений не ведет статистику
+                    Облегченная версия оригинала одного из (субъективно) лучших алгоритмов для создания плейлистов от ув.
+                    <a href="https://4pda.to/forum/index.php?showuser=62879" class="link">Bedmit</a>
+                    с форума <a href="https://4pda.to/forum/index.php?showtopic=715234&st=12120#entry85544903" class="link">4PDA</a>.
+                    В отличие от первоначальной версии, из-за некоторых ограничений не ведет статистику
                     прослушанных треков, что несколько снижает точность. Тем не менее, это значительно повышает стабильность, а
                     алгоритм все так же отлично подбирает треки
                 </p>
                 <button type='button' class="generator__button button button_primary" id="smartify-gen" onclick="smartifyGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
-            </section>
-            <section class="flex-list__item generator">
-                <h3 class="generator__header">
-                    Рекомендации по любимым исполнителям
-                </h3>
-                <p class="generator__info">
-                    Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
-                </p>
-                <button type='button' class="generator__button button button_primary" id="loved-art-gen" onclick="likedArtistsGenerator()">
                     <span class="button__text">Создать</span>
                 </button>
             </section>
@@ -110,7 +101,8 @@
                     EveryDayMix Lite
                 </h3>
                 <p class="generator__info">
-                    Еще один замечательный алгоритм с <a href="" class="link">4PDA</a> от ув. <a href="" class="link">IceTan</a>. Также не
+                    Еще один замечательный алгоритм с <a href="https://4pda.to/forum/index.php?showtopic=715234&st=13460#entry105650572" class="link">4PDA</a>
+                    от ув. <a href="https://4pda.to/forum/index.php?showuser=2412115" class="link">IceTan</a>. Также не
                     позволяет вести историю прослушиваний из-за особенностей API, что в теории может отразиться на точности, но убирает
                     вызываемые этим сбои в работе
                 </p>
@@ -129,6 +121,18 @@
                 </p>
                 <p class="generator__status">Не тестировался</p>
                 <button type='button' class="generator__button button button_primary" id="most-pop-gen" onclick="mostPopularGenerator()">
+                    <span class="button__text">Создать</span>
+                </button>
+            </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Рекомендации по любимым исполнителям
+                </h3>
+                <p class="generator__info">
+                    Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
+                </p>
+                <p class="generator__status">Не тестировался</p>
+                <button type='button' class="generator__button button button_primary" id="loved-art-gen" onclick="likedArtistsGenerator()">
                     <span class="button__text">Создать</span>
                 </button>
             </section>
