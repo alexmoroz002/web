@@ -1,7 +1,0 @@
-.user-tracks-analysis {
-    grid-area: tracks-analysis;
-}
-
-#tracks-analysis-plot {
-    flex-grow: 1;
-}

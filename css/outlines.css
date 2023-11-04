@@ -16,13 +16,7 @@
 @import "../common.blocks/feature.css";
 @import "../common.blocks/generator.css";
 @import "../common.blocks/stats-container.css";
-
-@import "../common.blocks/user-top-tracks.css";
-@import "../common.blocks/user-top-artists.css";
-@import "../common.blocks/user-top-genres.css";
-@import "../common.blocks/user-like-artists.css";
-@import "../common.blocks/user-like-tracks.css";
-@import "../common.blocks/user-tracks-analysis.css";
+@import "../common.blocks/plot.css";
 
 @import "../common.blocks/footer.css";
 @import "../common.blocks/link.css";

@@ -15,10 +15,37 @@
 .stats-container__item {
     border-radius: 10px;
     background-color: var(--secondary);
-    padding: 10px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    min-height: 0;
 }
+
+.stats-container__tracks-analysis {
+    grid-area: tracks-analysis;
+}
+
+.stats-container__top-genres {
+    grid-area: top-genres;
+}
+
+.stats-container__top-tracks {
+    grid-area: top-tracks;
+}
+
+.stats-container__like-artists {
+    grid-area: like-artists;
+}
+
+.stats-container__like-tracks {
+    grid-area: like-tracks;
+}
+
+.stats-container__top-artists {
+    grid-area: top-artists;
+}
+
 
 @media screen and (max-width: 1000px) {
     .stats-container {
@@ -26,10 +53,8 @@
             'top-artists'
             'tracks-analysis'
             'top-tracks'
-            'top-genres'
-            'like-artists'
-            'like-tracks';
+            'top-genres';
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr min-content 1fr;
+        grid-template-rows: 1fr 0.75fr min-content 0.75fr;
     }
 }
