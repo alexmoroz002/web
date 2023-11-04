@@ -1,0 +1,21 @@
+.nav-button {
+    display: block;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    color: var(--text);
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    background-color: color-mix(in srgb, var(--secondary) 90%, var(--accent));
+}
+
+.nav-button:active {
+    background-color: color-mix(in srgb, var(--secondary) 80%, var(--accent));
+}
+
+.nav-button__text_active {
+    border-bottom: var(--accent) solid 2px;
+}

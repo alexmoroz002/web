@@ -1,0 +1,32 @@
+.footer {
+    background-color: var(--text);
+    color: var(--background);
+    border-radius: 10px 10px 0 0;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__load-time {
+    font-style: italic;
+}
+
+#load-time {
+    color: var(--accent-alt);
+}
+
+.footer__info {
+    padding: 10px 0;
+    flex-grow: 1;
+}
+
+.footer__ascii {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .footer__ascii {
+        display: none;
+    }
+}

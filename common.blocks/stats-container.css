@@ -1,0 +1,35 @@
+.stats-container {
+    display: grid;
+    grid-template-areas:
+        'top-artists tracks-analysis'
+        'top-tracks top-tracks'
+        'top-genres like-tracks '
+        'like-artists like-tracks';
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr min-content 1fr;
+    width: 100%;
+    gap: 2vw;
+    margin: 3vh 0;
+}
+
+.stats-container__item {
+    border-radius: 10px;
+    background-color: var(--secondary);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1000px) {
+    .stats-container {
+        grid-template-areas:
+            'top-artists'
+            'tracks-analysis'
+            'top-tracks'
+            'top-genres'
+            'like-artists'
+            'like-tracks';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr min-content 1fr;
+    }
+}

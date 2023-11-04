@@ -1,0 +1,13 @@
+.nav-menu {
+    flex-grow: 0;
+}
+
+.nav-menu__item {
+    display: inline-block;
+}
+
+@media screen and (max-width: 700px) {
+    .nav-menu {
+        display: none;
+    }
+}

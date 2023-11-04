@@ -1,0 +1,31 @@
+.generator {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas:
+        "header header"
+        "info button"
+        "status button";
+    gap: 0 10px;
+    align-items: center;
+}
+
+.generator__header {
+    grid-area: header;
+}
+
+.generator__info {
+    grid-area: info;
+    margin: 0.5rem 0;
+}
+
+.generator__button {
+    grid-area: button;
+}
+
+.generator__status {
+    grid-area: status;
+    margin: 0.5rem 0;
+    color: var(--accent-alt);
+    font-style: italic;
+}
