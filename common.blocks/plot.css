@@ -1,0 +1,6 @@
+.plot {
+    background-color: #e7f5fd;
+    border-radius: 15px;
+    flex-grow: 1;
+    overflow: hidden;
+}

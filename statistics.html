@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="css/outlines.css">
     <script src="js/pageLoad.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"
+            integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
     <script src="js/statistics.js"></script>
     <title>Статистика - SoundStats</title>
 </head>
@@ -30,7 +34,7 @@
         </ul>
     </nav>
     <a href="#" class="button button_primary button_iconed">
-        <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+        <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
         <span class="button__text">Войти через Spotify</span>
     </a>
     <input type="checkbox" id="ham-toggle">
@@ -67,7 +71,7 @@
             </div>
         </div>
         <div class="stats-container">
-            <div class="stats-container__item user-top-artists">
+            <div class="stats-container__item stats-container__top-artists">
                 <h2 class="stats-container__item-header">Любимые исполнители</h2>
                 <table class="table table_inner">
                     <tbody>
@@ -80,7 +84,7 @@
                         </td>
                         <td class="table__cell table__link">
                             <a href="https://open.spotify.com/artist/2TdEIqWbLnZZHYRDWvVj67" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть</span>
                             </a>
                         </td>
@@ -94,7 +98,7 @@
                         </td>
                         <td class="table__cell table__link">
                             <a href="https://open.spotify.com/artist/2q3GG88dVwuQPF4FmySr9I" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть</span>
                             </a>
                         </td>
@@ -108,7 +112,7 @@
                         </td>
                         <td class="table__cell table__link">
                             <a href="https://open.spotify.com/artist/2d12dVIZQZk9CKhEsezaoN" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть</span>
                             </a>
                         </td>
@@ -122,7 +126,7 @@
                         </td>
                         <td class="table__cell table__link">
                             <a href="https://open.spotify.com/artist/2VzNhLa3iGSwWttS4n1kbB" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть</span>
                             </a>
                         </td>
@@ -136,7 +140,7 @@
                         </td>
                         <td class="table__cell table__link">
                             <a href="https://open.spotify.com/artist/3o2dn2O0FCVsWDFSh8qxgG" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть</span>
                             </a>
                         </td>
@@ -144,11 +148,13 @@
                     </tbody>
                 </table>
             </div>
-            <div class="stats-container__item user-top-genres">
+            <div class="stats-container__item stats-container__top-genres">
                 <h2 class="stats-container__item-header">Любимые жанры</h2>
-                <div id="top-genres-plot"></div>
+                <div class="plot">
+                    <canvas id="top-genres-plot"></canvas>
+                </div>
             </div>
-            <div class="stats-container__item user-top-tracks">
+            <div class="stats-container__item stats-container__top-tracks">
                 <h2 class="stats-container__item-header">Любимые треки</h2>
                 <table class="table table_inner">
                     <thead class="table__header">
@@ -171,7 +177,7 @@
                         </td>
                         <td class="table__link table__cell">
                             <a href="https://open.spotify.com/track/77spgc3VsjeFMi8ged5cOO" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть в Spotify</span>
                             </a>
                         </td>
@@ -187,7 +193,7 @@
                         </td>
                         <td class="table__link table__cell">
                             <a href="https://open.spotify.com/track/4EsS7kgS3ztITT00pH0KG6" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть в Spotify</span>
                             </a>
                         </td>
@@ -203,7 +209,7 @@
                         </td>
                         <td class="table__link table__cell">
                             <a href="https://open.spotify.com/track/0lO8ZTS4kNYa9eOSC1QYQi" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть в Spotify</span>
                             </a>
                         </td>
@@ -219,7 +225,7 @@
                         </td>
                         <td class="table__link table__cell">
                             <a href="https://open.spotify.com/track/6e13443Ve7RGcAUScTgYtl" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть в Spotify</span>
                             </a>
                         </td>
@@ -235,7 +241,7 @@
                         </td>
                         <td class="table__link table__cell">
                             <a href="https://open.spotify.com/track/2xrW6sZRmahuSAQMxO4BmJ" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
                                 <span class="button__text">Открыть в Spotify</span>
                             </a>
                         </td>
@@ -243,9 +249,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="stats-container__item user-tracks-analysis">
+            <div class="stats-container__item stats-container__tracks-analysis">
                 <h2 class="stats-container__item-header">Анализ предпочтений в музыке</h2>
-                <div id="tracks-analysis-plot"></div>
+                <div class="plot">
+                    <canvas id="tracks-analysis-plot"></canvas>
+                </div>
             </div>
         </div>
     </div>

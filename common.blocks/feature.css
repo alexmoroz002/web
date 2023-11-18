@@ -1,0 +1,29 @@
+.feature {
+    display: flex;
+    align-items: center;
+}
+
+.feature__img {
+    width: 200px;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 15px;
+}
+
+.feature:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.feature__info {
+    align-self: center;
+    text-align: center;
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 600px) {
+    .flex-list .feature {
+        flex-direction: column-reverse;
+    }
+}

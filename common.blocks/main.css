@@ -1,0 +1,11 @@
+.main__inner {
+    margin: 0 5vw;
+    padding: 10px 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .main__inner {
+        margin: 0;
+        padding: 10px 2vw;
+    }
+}

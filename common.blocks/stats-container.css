@@ -1,0 +1,60 @@
+.stats-container {
+    display: grid;
+    grid-template-areas:
+        'top-artists tracks-analysis'
+        'top-tracks top-tracks'
+        'top-genres like-tracks '
+        'like-artists like-tracks';
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr min-content 1fr;
+    width: 100%;
+    gap: 2vw;
+    margin: 3vh 0;
+}
+
+.stats-container__item {
+    border-radius: 10px;
+    background-color: var(--secondary);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+.stats-container__tracks-analysis {
+    grid-area: tracks-analysis;
+}
+
+.stats-container__top-genres {
+    grid-area: top-genres;
+}
+
+.stats-container__top-tracks {
+    grid-area: top-tracks;
+}
+
+.stats-container__like-artists {
+    grid-area: like-artists;
+}
+
+.stats-container__like-tracks {
+    grid-area: like-tracks;
+}
+
+.stats-container__top-artists {
+    grid-area: top-artists;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .stats-container {
+        grid-template-areas:
+            'top-artists'
+            'tracks-analysis'
+            'top-tracks'
+            'top-genres';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.75fr min-content 0.75fr;
+    }
+}

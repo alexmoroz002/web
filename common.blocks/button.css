@@ -1,0 +1,46 @@
+.button {
+    height: 41px;
+    display: inline-flex;
+    border-radius: 20px;
+    vertical-align: middle;
+    padding: 0 15px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.button_iconed {
+    padding-left: 0;
+}
+
+.button_primary {
+    background-color: var(--primary);
+    color: var(--background);
+}
+
+.button_secondary {
+    background-color: var(--secondary);
+    color: var(--text);
+}
+
+.button__icon {
+    float: left;
+    height: 21px;
+    width: 21px;
+    padding: 10px;
+    -webkit-user-drag: none;
+}
+
+.button__text {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.button:hover {
+    filter: brightness(95%);
+}
+
+.button:active {
+    filter: brightness(85%);
+}
