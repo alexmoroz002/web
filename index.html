@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/outlines.css">
+    <script src="js/pageLoad.js"></script>
     <title>SoundStats</title>
 </head>
 
@@ -16,19 +17,19 @@
     </a>
     <nav class="nav-menu">
         <ul class="menu">
-            <li class="menu__item">
-                <a href="#" class="nav-button menu__nav-button">
+            <li class="nav-menu__item">
+                <a href="statistics.html" class="nav-button menu__nav-button">
                     <span class="nav-button__text">Статистика</span>
                 </a>
             </li>
-            <li class="menu__item">
-                <a href="#" class="nav-button menu__nav-button">
+            <li class="nav-menu__item">
+                <a href="playlists.html" class="nav-button menu__nav-button">
                     <span class="nav-button__text">Плейлисты</span>
                 </a>
             </li>
         </ul>
     </nav>
-    <a href="#" class="button contrast_button">
+    <a href="#" class="button button_primary button_iconed">
         <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
         <span class="button__text">Войти через Spotify</span>
     </a>
@@ -36,12 +37,22 @@
     <label class="ham-button" for="ham-toggle">
         <span></span>
     </label>
-    <ul class="ham-menu">
-        <li><a class="ham-menu__item" href="#">Войти</a></li>
-        <li><a class="ham-menu__item" href="#">Главная</a></li>
-        <li><a class="ham-menu__item" href="#">Статистика</a></li>
-        <li><a class="ham-menu__item" href="#">Плейлисты</a></li>
-    </ul>
+    <nav class="ham-menu">
+        <ul class="menu">
+            <li class="ham-menu__item">
+                <a href="#" class="ham-menu__link">Войти</a>
+            </li>
+            <li class="ham-menu__item">
+                <a href="index.html" class="ham-menu__link">Главная</a>
+            </li>
+            <li class="ham-menu__item">
+                <a href="statistics.html" class="ham-menu__link">Статистика</a>
+            </li>
+            <li class="ham-menu__item">
+                <a href="playlists.html" class="ham-menu__link">Плейлисты</a>
+            </li>
+        </ul>
+    </nav>
 </header>
 
 <main class="main">
@@ -73,13 +84,14 @@
                     <td class="table__cover table__cell">
                         <img src="https://i.scdn.co/image/ab67616d0000b2737acee948ecac8380c1b6ce30" class="table__cover-img" alt="">
                     </td>
-                    <td class="table__info table__cell">Paint The Town Red - Doja Cat</td>
+                    <td class="table__info table__cell">
+                        <p class="table__info-primary">Paint The Town Red</p>
+                        <p class="table__info-secondary">Doja Cat</p>
+                    </td>
                     <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7" class="button">
-                            <div class="contrast_button">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </div>
+                        <a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7" class="button button_primary button_iconed">
+                            <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                            <span class="button__text">Открыть в Spotify</span>
                         </a>
                     </td>
                 </tr>
@@ -88,13 +100,14 @@
                     <td class="table__cover table__cell">
                         <img src="https://i.scdn.co/image/ab67616d0000b273bf5cce5a0e1ed03a626bdd74" class="table__cover-img" alt="">
                     </td>
-                    <td class="table__info table__cell">Seven (feat. Latto) (Explicit Ver.) - Jung Kook, Latto</td>
+                    <td class="table__info table__cell">
+                        <p class="table__info-primary">Seven (feat. Latto) (Explicit Ver.)</p>
+                        <p class="table__info-secondary">Jung Kook, Latto</p>
+                    </td>
                     <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo" class="button">
-                            <div class="contrast_button">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </div>
+                        <a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo" class="button button_primary button_iconed">
+                            <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                            <span class="button__text">Открыть в Spotify</span>
                         </a>
                     </td>
                 </tr>
@@ -103,13 +116,14 @@
                     <td class="table__cover table__cell">
                         <img src="https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647" class="table__cover-img" alt="">
                     </td>
-                    <td class="table__info table__cell">Cruel Summer - Taylor Swift</td>
+                    <td class="table__info table__cell">
+                        <p class="table__info-primary">Cruel Summer</p>
+                        <p class="table__info-secondary">Taylor Swift</p>
+                    </td>
                     <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr" class="button">
-                            <div class="contrast_button">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </div>
+                        <a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr" class="button button_primary button_iconed">
+                            <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                            <span class="button__text">Открыть в Spotify</span>
                         </a>
                     </td>
                 </tr>
@@ -118,13 +132,14 @@
                     <td class="table__cover table__cell">
                         <img src="https://i.scdn.co/image/ab67616d0000b2733b2df9103b8b1bad69ec4aa9" class="table__cover-img" alt="">
                     </td>
-                    <td class="table__info table__cell">Slime You Out (feat. SZA) - Drake, SZA</td>
+                    <td class="table__info table__cell">
+                        <p class="table__info-primary">Slime You Out (feat. SZA)</p>
+                        <p class="table__info-secondary">Drake, SZA</p>
+                    </td>
                     <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV" class="button">
-                            <div class="contrast_button">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </div>
+                        <a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV" class="button button_primary button_iconed">
+                            <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                            <span class="button__text">Открыть в Spotify</span>
                         </a>
                     </td>
                 </tr>
@@ -133,13 +148,14 @@
                     <td class="table__cover table__cell">
                         <img src="https://i.scdn.co/image/ab67616d0000b273e85259a1cae29a8d91f2093d" class="table__cover-img" alt="">
                     </td>
-                    <td class="table__info table__cell">vampire - Olivia Rodrigo</td>
+                    <td class="table__info table__cell">
+                        <p class="table__info-primary">vampire</p>
+                        <p class="table__info-secondary">Olivia Rodrigo</p>
+                    </td>
                     <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS" class="button">
-                            <div class="contrast_button">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </div>
+                        <a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS" class="button button_primary button_iconed">
+                            <img src="images/spotify_icon_alt.svg" alt="" class="button__spotify-logo">
+                            <span class="button__text">Открыть в Spotify</span>
                         </a>
                     </td>
                 </tr>
@@ -147,29 +163,29 @@
             </table>
         </article>
 
-        <article class="features">
-            <h2 class="features__header">Особенности</h2>
-            <article class="features__item">
-                <div class="features__text">Просматривайте свои наиболее прослушиваемые треки и исполнителей</div>
-                <img src="images/ranking.svg" class="features__img" alt="ranking">
+        <article class="flex-list">
+            <h2 class="flex-list__header">Особенности</h2>
+            <article class="flex-list__item feature">
+                <div class="feature__info">Просматривайте свои наиболее прослушиваемые треки и исполнителей</div>
+                <img src="images/ranking.svg" class="feature__img" alt="ranking">
             </article>
-            <article class="features__item">
-                <div class="features__text">Изучайте свои жанровые предпочтения</div>
-                <img src="images/music_genres.svg" class="features__img" alt="music instruments">
+            <article class="flex-list__item feature">
+                <div class="feature__info">Изучайте свои жанровые предпочтения</div>
+                <img src="images/music_genres.svg" class="feature__img" alt="music instruments">
             </article>
-            <article class="features__item">
-                <div class="features__text">Создавайте персонализированные плейлисты используя различные алгоритмы</div>
-                <img src="images/album.svg" class="features__img" alt="music album">
+            <article class="flex-list__item feature">
+                <div class="feature__info">Создавайте персонализированные плейлисты используя различные алгоритмы</div>
+                <img src="images/album.svg" class="feature__img" alt="music album">
             </article>
-            <article class="features__item">
-                <div class="features__text">Создавайте плейлисты на основе самых популярных треков в мире</div>
-                <img src="images/playlist.svg" class="features__img" alt="playlist">
+            <article class="flex-list__item feature">
+                <div class="feature__info">Создавайте плейлисты на основе самых популярных треков в мире</div>
+                <img src="images/playlist.svg" class="feature__img" alt="playlist">
             </article>
-            <article class="features__item">
-                <div class="features__text">И многое другое!</div>
-                <img src="images/features_list.svg" class="features__img" alt="list">
+            <article class="flex-list__item feature">
+                <div class="feature__info">И многое другое!</div>
+                <img src="images/features_list.svg" class="feature__img" alt="list">
             </article>
-            <aside class="features__footer">
+            <aside class="flex-list__footer">
                 <p>
                     Для получения доступа ко всему функционалу вам необходим
                     аккаунт Spotify <strong>с активной подпиской Spotify Premium</strong>
@@ -180,9 +196,12 @@
 </main>
 
 <footer class="footer page__footer">
-    <div class="footer__copyright">
-        Создано (будет) с использованием <a href="https://developer.spotify.com" class="link">Spotify API</a><br>
-        Данное приложение никак не связано с компанией Spotify AB или её партнерами <br>
+    <div class="footer__info">
+        Создано (будет) с использованием <a href="https://developer.spotify.com/documentation/web-api" class="link">Spotify API</a><br>
+        Данное приложение никак не связано с компанией Spotify AB или её партнерами <br> <br>
+        <div class="footer__load-time">
+            Время загрузки страницы: <span id="load-time"></span>мс
+        </div>
     </div>
     <div class="footer__ascii">
             <pre>
