@@ -1,5 +1,5 @@
 .plot {
-    background-color: #e7f5fd;
+    background-color: var(--background);
     border-radius: 15px;
     flex-grow: 1;
     overflow: hidden;
