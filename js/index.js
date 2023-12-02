@@ -1,10 +1,12 @@
 window.addEventListener('DOMContentLoaded', async () => {
     // Токен действует 1 час после получения, к моменту проверки он скорее всего истек (:
-    const token = "BQAJLp7VeGr570bab2MmLKnCNjmu5RnbtIshBT9eD4ia-4rzhWq81RNFxKdFgFlQ1ottm1TluWN2YSlCVuHbCwg_LvUInQ0tW3sIRV9u91mkXeE-a54"
+    const token = "1BQB6LfeJJ7KVVEkYuy3Fg014Zte_JJe4IcNLmxECYEJUckFPQjvHCdLqRZjHHYeWDcoeBHwiQn5jm52iMHjRh13n83Nug_4ZVH7DvGihfSaQZ4e_DA8"
     const table = document.getElementById('top-tracks-table')
-    if (!table)
+    const overlay = document.getElementById('preloader')
+    if (!table || !overlay)
         return
     table.classList.add('table_loading')
+    overlay.style.visibility = 'visible'
     try {
         const response = await fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbNG2KDcFcKOF/tracks?market=BR&limit=5', {
             method: 'GET',
@@ -75,10 +77,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
             tableBody.appendChild(row)
         })
+        overlay.style.visibility = 'hidden'
         table.classList.remove('table_loading')
     } catch (error) {
         console.log(error)
-        table.classList.remove('table_loading')
+        overlay.firstElementChild.src = '/images/error.svg'
+        overlay.lastElementChild.innerText = error
         table.classList.add('table_error')
     }
 })
