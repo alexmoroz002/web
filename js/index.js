@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
     // Токен действует 1 час после получения, к моменту проверки он скорее всего истек (:
-    const token = "1BQB6LfeJJ7KVVEkYuy3Fg014Zte_JJe4IcNLmxECYEJUckFPQjvHCdLqRZjHHYeWDcoeBHwiQn5jm52iMHjRh13n83Nug_4ZVH7DvGihfSaQZ4e_DA8"
+    const token = "BQBQprZ5ACzRhUomvzgs8XnrqRRPJrCcleygRI4UJXSwEVUxRSeSDL7IukVte1p8RacfgcL-wJH_0VsGpVd35flpks64Q9otmzj5VegtG9ftixcq0yw"
     const table = document.getElementById('top-tracks-table')
     const overlay = document.getElementById('preloader')
     if (!table || !overlay)
