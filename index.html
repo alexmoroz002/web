@@ -6,6 +6,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="css/outlines.css">
     <script src="js/pageLoad.js"></script>
+    <script src="js/index.js"></script>
     <title>SoundStats</title>
 </head>
 
@@ -69,7 +70,7 @@
             <h2 class="top-tracks__title">Топ-5 треков
                 <time datetime="2023-09-19">сегодня</time>
             </h2>
-            <table class="table">
+            <table class="table" id="top-tracks-table">
                 <thead class="table__header">
                 <tr>
                     <th class="table__cell">#</th>
@@ -78,87 +79,15 @@
                     <th class="table__cell">Ссылка</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr class="table__row">
-                    <td class="table__index table__cell">1</td>
-                    <td class="table__cover table__cell">
-                        <img src="https://i.scdn.co/image/ab67616d0000b2737acee948ecac8380c1b6ce30" class="table__cover-img" alt="">
-                    </td>
-                    <td class="table__info table__cell">
-                        <p class="table__info-primary">Paint The Town Red</p>
-                        <p class="table__info-secondary">Doja Cat</p>
-                    </td>
-                    <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/2IGMVunIBsBLtEQyoI1Mu7" class="button button_primary button_iconed">
-                            <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                            <span class="button__text">Открыть в Spotify</span>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__index table__cell">2</td>
-                    <td class="table__cover table__cell">
-                        <img src="https://i.scdn.co/image/ab67616d0000b273bf5cce5a0e1ed03a626bdd74" class="table__cover-img" alt="">
-                    </td>
-                    <td class="table__info table__cell">
-                        <p class="table__info-primary">Seven (feat. Latto) (Explicit Ver.)</p>
-                        <p class="table__info-secondary">Jung Kook, Latto</p>
-                    </td>
-                    <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/7x9aauaA9cu6tyfpHnqDLo" class="button button_primary button_iconed">
-                            <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                            <span class="button__text">Открыть в Spotify</span>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__index table__cell">3</td>
-                    <td class="table__cover table__cell">
-                        <img src="https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647" class="table__cover-img" alt="">
-                    </td>
-                    <td class="table__info table__cell">
-                        <p class="table__info-primary">Cruel Summer</p>
-                        <p class="table__info-secondary">Taylor Swift</p>
-                    </td>
-                    <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/1BxfuPKGuaTgP7aM0Bbdwr" class="button button_primary button_iconed">
-                            <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                            <span class="button__text">Открыть в Spotify</span>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__index table__cell">4</td>
-                    <td class="table__cover table__cell">
-                        <img src="https://i.scdn.co/image/ab67616d0000b2733b2df9103b8b1bad69ec4aa9" class="table__cover-img" alt="">
-                    </td>
-                    <td class="table__info table__cell">
-                        <p class="table__info-primary">Slime You Out (feat. SZA)</p>
-                        <p class="table__info-secondary">Drake, SZA</p>
-                    </td>
-                    <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/3RaCGXCiiMufRPoexXxGkV" class="button button_primary button_iconed">
-                            <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                            <span class="button__text">Открыть в Spotify</span>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__index table__cell">5</td>
-                    <td class="table__cover table__cell">
-                        <img src="https://i.scdn.co/image/ab67616d0000b273e85259a1cae29a8d91f2093d" class="table__cover-img" alt="">
-                    </td>
-                    <td class="table__info table__cell">
-                        <p class="table__info-primary">vampire</p>
-                        <p class="table__info-secondary">Olivia Rodrigo</p>
-                    </td>
-                    <td class="table__link table__cell">
-                        <a href="https://open.spotify.com/track/1kuGVB7EU95pJObxwvfwKS" class="button button_primary button_iconed">
-                            <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                            <span class="button__text">Открыть в Spotify</span>
-                        </a>
-                    </td>
-                </tr>
+                <tbody id="top-tracks-tb">
+                    <tr>
+                        <td>
+                            <div class="overlay" id="preloader">
+                                <img src="images/loading.gif" height="100">
+                                <p>Загрузка</p>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </article>

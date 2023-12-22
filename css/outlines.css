@@ -17,6 +17,7 @@
 @import "../common.blocks/generator.css";
 @import "../common.blocks/stats-container.css";
 @import "../common.blocks/plot.css";
+@import "../common.blocks/overlay.css";
 
 @import "../common.blocks/footer.css";
 @import "../common.blocks/link.css";
