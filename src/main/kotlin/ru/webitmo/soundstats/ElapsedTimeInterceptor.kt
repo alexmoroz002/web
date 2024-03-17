@@ -12,7 +12,6 @@ class ElapsedTimeInterceptor : HandlerInterceptor {
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
         val startTime = System.currentTimeMillis()
         request.setAttribute("startTime", startTime)
-        println("$startTime")
         return true
     }
 }
