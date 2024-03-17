@@ -12,10 +12,6 @@
     font-style: italic;
 }
 
-#load-time {
-    color: var(--accent-alt);
-}
-
 .footer__info {
     padding: 10px 0;
     flex-grow: 1;

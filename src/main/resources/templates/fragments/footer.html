@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<footer class="footer page__footer" th:fragment="footer">
+    <div class="footer__info">
+        Создано (будет) с использованием <a href="https://developer.spotify.com/documentation/web-api" class="link">Spotify API</a><br>
+        Данное приложение никак не связано с компанией Spotify AB или её партнерами <br> <br>
+        <div class="footer__load-time">
+            Время загрузки страницы: <span id="load-time"></span>мс (браузер) + <span th:replace="~{fragments/response-time :: response-time}"></span>мс (сервер)
+        </div>
+    </div>
+    <div class="footer__ascii">
+                <pre>
+          |\      _,,,---,,_
+    ZZZzz /,`.-'`'    -.  ;-;;,_
+         |,4-  ) )-,_. ,\ (  `'-'
+        '---''(_/--'  `-'\_)</pre>
+    </div>
+</footer>
+</body>
+</html>
