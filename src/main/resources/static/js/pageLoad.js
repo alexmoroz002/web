@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
     const [p] = performance.getEntriesByType("navigation")
     let time = document.getElementById('server-time').textContent
-    document.getElementById('load-time').innerHTML = (p.domComplete.toFixed() - time).toString()
+    document.getElementById('load-time').innerHTML = (p.domComplete.toFixed() - p.responseEnd.toFixed()).toString()
 });
 
 function setActive() {

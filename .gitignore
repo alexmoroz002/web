@@ -118,3 +118,5 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+/node_modules
