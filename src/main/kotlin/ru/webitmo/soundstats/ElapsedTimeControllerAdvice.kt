@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute
 @ControllerAdvice(annotations = [TimedController::class])
 class ElapsedTimeControllerAdvice {
     @ModelAttribute("responseData")
-    fun getCurrentUser(request: HttpServletRequest): String {
+    fun addTimeHeader(request: HttpServletRequest): String {
         val time = request.getAttribute("startTime") ?: return ""
         val res = System.currentTimeMillis() - time as Long
         return res.toString()
