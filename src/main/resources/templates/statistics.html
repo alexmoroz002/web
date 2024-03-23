@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" href="css/outlines.css">
-    <link rel="icon" type="image/x-icon" href="/images/logo.svg">
-    <script src="js/pageLoad.js"></script>
+    <link rel="stylesheet" href="../static/css/outlines.css" th:href="@{/css/outlines.css}">
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script src="../static/js/pageLoad.js" th:src="@{/js/pageLoad.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"
             integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-    <script src="js/statistics.js"></script>
+    <script src="../static/js/statistics.js" th:src="@{/js/statistics.js}"></script>
     <title>Статистика - SoundStats</title>
 </head>
 <body class="page page_header_fixed">
@@ -33,72 +34,16 @@
                 <h2 class="stats-container__item-header">Любимые исполнители</h2>
                 <table class="table table_inner">
                     <tbody>
-                    <tr class="table__row">
+                    <tr th:each="artist : ${artists}" class="table__row">
                         <td class="table__cell table__cover">
-                            <img src="https://i.scdn.co/image/ab6761610000e5ebae7c78bd69ba795e7f9b7d04" class="table__cover-img" alt="">
+                            <img th:src="${artist.coverUrl}" src="../static/images/placeholder.svg" class="table__cover-img" alt="">
                         </td>
                         <td class="table__cell table__info">
-                            <p class="table__info-primary">Battle Tapes</p>
+                            <p class="table__info-primary" th:text="${artist.name}">Artist</p>
                         </td>
                         <td class="table__cell table__link">
-                            <a href="https://open.spotify.com/artist/2TdEIqWbLnZZHYRDWvVj67" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__cell table__cover">
-                            <img src="https://i.scdn.co/image/ab6761610000e5ebc1fded2a185c54df399fe63a" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__cell table__info">
-                            <p class="table__info-primary">The Score</p>
-                        </td>
-                        <td class="table__cell table__link">
-                            <a href="https://open.spotify.com/artist/2q3GG88dVwuQPF4FmySr9I" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__cell table__cover">
-                            <img src="https://i.scdn.co/image/ab67616d0000b27316052dae7e0f5404597980ec" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__cell table__info">
-                            <p class="table__info-primary">いとうかなこ</p>
-                        </td>
-                        <td class="table__cell table__link">
-                            <a href="https://open.spotify.com/artist/2d12dVIZQZk9CKhEsezaoN" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__cell table__cover">
-                            <img src="https://i.scdn.co/image/ab67616d0000b273b72c78aa721beab0ddaaa106" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__cell table__info">
-                            <p class="table__info-primary">Joel Nielsen</p>
-                        </td>
-                        <td class="table__cell table__link">
-                            <a href="https://open.spotify.com/artist/2VzNhLa3iGSwWttS4n1kbB" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__cell table__cover">
-                            <img src="https://i.scdn.co/image/ab6761610000e5eb97d68537c39dc8bcebbd9e6c" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__cell table__info">
-                            <p class="table__info-primary">Sabaton</p>
-                        </td>
-                        <td class="table__cell table__link">
-                            <a href="https://open.spotify.com/artist/3o2dn2O0FCVsWDFSh8qxgG" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
+                            <a th:href="@{'https://open.spotify.com/artist/' + ${artist.id}}" class="button button_primary button_iconed">
+                                <img src="../static/images/spotify_icon_alt.svg" th:src="@{/images/spotify_icon_alt.svg}" alt="" class="button__icon">
                                 <span class="button__text">Открыть</span>
                             </a>
                         </td>
@@ -124,82 +69,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="table__row">
-                        <td class="table__index table__cell">1</td>
+                    <tr th:each="track, iter : ${tracks}" class="table__row">
+                        <td class="table__index table__cell" th:text="${iter.count}">1</td>
                         <td class="table__cover table__cell">
-                            <img src="https://i.scdn.co/image/ab67616d0000b27316cf696d7085df82f77b59f5" class="table__cover-img" alt="">
+                            <img th:src="${track.coverUrl}" src="../static/images/placeholder.svg" class="table__cover-img" alt="">
                         </td>
                         <td class="table__info table__cell">
-                            <p class="table__info-primary">カミイロアワセ</p>
-                            <p class="table__info-secondary">binaria</p>
+                            <p class="table__info-primary" th:text="${track.name}">Track</p>
+                            <p class="table__info-secondary" th:text="${track.artists}">Artist</p>
                         </td>
                         <td class="table__link table__cell">
-                            <a href="https://open.spotify.com/track/77spgc3VsjeFMi8ged5cOO" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__index table__cell">2</td>
-                        <td class="table__cover table__cell">
-                            <img src="https://i.scdn.co/image/ab67616d0000b273b7adc833cd0d61833462d082" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__info table__cell">
-                            <p class="table__info-primary">Control</p>
-                            <p class="table__info-secondary">Battle Tapes</p>
-                        </td>
-                        <td class="table__link table__cell">
-                            <a href="https://open.spotify.com/track/4EsS7kgS3ztITT00pH0KG6" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__index table__cell">3</td>
-                        <td class="table__cover table__cell">
-                            <img src="https://i.scdn.co/image/ab67616d0000b2732b606483bf61fdfba68ed4dc" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__info table__cell">
-                            <p class="table__info-primary">4:30</p>
-                            <p class="table__info-secondary">Danger</p>
-                        </td>
-                        <td class="table__link table__cell">
-                            <a href="https://open.spotify.com/track/0lO8ZTS4kNYa9eOSC1QYQi" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__index table__cell">4</td>
-                        <td class="table__cover table__cell">
-                            <img src="https://i.scdn.co/image/ab67616d0000b273bc8d2b3ac36be53be9a38fe1" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__info table__cell">
-                            <p class="table__info-primary">The Last Of The Real Ones</p>
-                            <p class="table__info-secondary">Fall Out Boy</p>
-                        </td>
-                        <td class="table__link table__cell">
-                            <a href="https://open.spotify.com/track/6e13443Ve7RGcAUScTgYtl" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__index table__cell">5</td>
-                        <td class="table__cover table__cell">
-                            <img src="https://i.scdn.co/image/ab67616d0000b2737abc5e6132d2d0868b51aef9" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__info table__cell">
-                            <p class="table__info-primary">Rush</p>
-                            <p class="table__info-secondary">The Score</p>
-                        </td>
-                        <td class="table__link table__cell">
-                            <a href="https://open.spotify.com/track/2xrW6sZRmahuSAQMxO4BmJ" class="button button_primary button_iconed">
-                                <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
+                            <a th:href="@{'https://open.spotify.com/track/' + ${track.id}}" class="button button_primary button_iconed">
+                                <img src="../static/images/spotify_icon_alt.svg" th:src="@{/images/spotify_icon_alt.svg}" alt="" class="button__icon">
                                 <span class="button__text">Открыть в Spotify</span>
                             </a>
                         </td>

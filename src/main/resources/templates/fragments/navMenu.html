@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav class="nav-menu" th:fragment="navMenu">
+        <ul class="menu">
+            <li class="nav-menu__item" th:each="item : ${navigationItems}">
+                <a href="statistics" th:href="${item.uri}" class="nav-button menu__nav-button">
+                    <span class="nav-button__text" th:text="${item.name}">Статистика</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
