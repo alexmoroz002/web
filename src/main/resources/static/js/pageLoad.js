@@ -9,6 +9,8 @@ window.addEventListener('load', () => {
 
 function setActive() {
     let path = window.location.pathname.split("/").pop()
+    if (path === "")
+        path = "/"
     let hamButton = document.querySelector(".ham-menu__link[href='" + CSS.escape(path) + "']")
     if (hamButton)
         hamButton.classList.add('ham-menu__item_active')
