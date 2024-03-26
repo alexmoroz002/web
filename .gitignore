@@ -120,3 +120,4 @@ out/
 .kotlin
 
 /node_modules
+/src/test/resources/application-test.properties
