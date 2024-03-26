@@ -1,7 +1,7 @@
 create table if not exists users
 (
-    id bigserial primary key not null,
-    spotify_id varchar(50) not null,
+--     id bigserial primary key not null,
+    spotify_id varchar(50) primary key not null,
     name varchar(50),
     country char(2),
     is_explicit bool,

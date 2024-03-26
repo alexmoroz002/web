@@ -1,11 +1,17 @@
 package ru.webitmo.soundstats
 
-class User (
-    val dbId : Int = 1,
-    val id : String = "",
-    val name : String = "",
-    val market : String = "",
-    val imageUrl : String? = "",
-    val accessToken : String = "",
-    val refreshToken : String = ""
+import jakarta.persistence.*
+
+@Entity
+@Table(name = "users")
+class User(
+    @Id
+    var spotifyId : String,
+    var country : String,
+    var isExplicit : Boolean,
+    var accessToken : String,
+    var refreshToken : String,
+    var name : String? = null,
+    var avatarUrl : String? = null,
+    var product : String? = null,
 )
