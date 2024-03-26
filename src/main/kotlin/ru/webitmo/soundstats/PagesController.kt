@@ -2,6 +2,7 @@ package ru.webitmo.soundstats
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 
 // Архитектура очень плохая, я понимаю, обещаю ее обязательно переделать к следующим лабам
@@ -14,15 +15,24 @@ class PagesController {
 
     @GetMapping("/logged")
     fun getLoggedIndex(model : Model) : String {
-        val user = User(1, "42abb0odou3wd23wazdipl7xg", "Alex Moroz", "BR", null, "123", "345")
-        model.addAttribute("user", user)
+        val user = User(
+            "42abb0odou3wd23wazdipl7xg",
+            "BR",
+            false,
+            "token",
+            "refreshToken",
+            "Alex Moroz",
+            "avatar",
+            "premium"
+        )
+        model["user"] = user
         return "index"
     }
 
     @GetMapping("/statistics")
     fun getStats(model : Model) : String {
-        model.addAttribute("artists", mockLikedArtists())
-        model.addAttribute("tracks", mockLikedTracks())
+        model["artists"] = mockLikedArtists()
+        model["tracks"] = mockLikedTracks()
         return "statistics"
     }
 
