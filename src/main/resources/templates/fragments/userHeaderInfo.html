@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a th:href="@{'https://open.spotify.com/user/' + ${user.id}}" class="button button_primary button_iconed" th:fragment="loginInfo">
+        <img th:src="${user.imageUrl} ?: '/images/profile.svg'" alt="" class="button__icon">
+        <b class="button__text" th:text="${user.name}">Войти через Spotify</b>
+    </a>
+</body>
+</html>

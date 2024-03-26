@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav class="ham-menu" th:fragment="hamMenu">
+        <a th:href="@{/logged}" th:replace="${null != user} ? ~{fragments/userHeaderInfo :: loginInfo} : _" class="button button_primary button_iconed">
+            <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
+            <b class="button__text">Войти через Spotify</b>
+        </a>
+        <ul class="menu">
+
+            <li class="ham-menu__item">
+                <a href="/" class="ham-menu__link">Главная</a>
+            </li>
+            <li class="ham-menu__item" th:each="item : ${navigationItems}">
+                <a href="statistics" class="ham-menu__link" th:href="${item.uri}" th:text="${item.name}">Статистика</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

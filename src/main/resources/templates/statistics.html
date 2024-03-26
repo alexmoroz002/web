@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="../static/css/outlines.css" th:href="@{/css/outlines.css}">
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script src="../static/js/pageLoad.js" th:src="@{/js/pageLoad.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"
+            integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="../static/js/statistics.js" th:src="@{/js/statistics.js}"></script>
+    <title>Статистика - SoundStats</title>
+</head>
+<body class="page page_header_fixed">
+
+<header th:replace="~{fragments/header :: header}"></header>
+
+<main class="main">
+    <div class="main__inner">
+        <div class="page-desc">
+            <h1 class="page-desc__header">
+                Статистика
+            </h1>
+            <div class="page-desc__text">
+                Здесь вы сможете просматривать свою статистику по вашим трекам, исполнителям, любимым жанрам, а также
+                подписываться на ваши самые прослушиваемые треки и исполнителей
+            </div>
+        </div>
+        <div class="stats-container">
+            <div class="stats-container__item stats-container__top-artists">
+                <h2 class="stats-container__item-header">Любимые исполнители</h2>
+                <table class="table table_inner">
+                    <tbody>
+                    <tr th:each="artist : ${artists}" class="table__row">
+                        <td class="table__cell table__cover">
+                            <img th:src="${artist.coverUrl}" src="../static/images/placeholder.svg" class="table__cover-img" alt="">
+                        </td>
+                        <td class="table__cell table__info">
+                            <p class="table__info-primary" th:text="${artist.name}">Artist</p>
+                        </td>
+                        <td class="table__cell table__link">
+                            <a th:href="@{'https://open.spotify.com/artist/' + ${artist.id}}" class="button button_primary button_iconed">
+                                <img src="../static/images/spotify_icon_alt.svg" th:src="@{/images/spotify_icon_alt.svg}" alt="" class="button__icon">
+                                <span class="button__text">Открыть</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="stats-container__item stats-container__top-genres">
+                <h2 class="stats-container__item-header">Любимые жанры</h2>
+                <div class="plot">
+                    <canvas id="top-genres-plot"></canvas>
+                </div>
+            </div>
+            <div class="stats-container__item stats-container__top-tracks">
+                <h2 class="stats-container__item-header">Любимые треки</h2>
+                <table class="table table_inner">
+                    <thead class="table__header">
+                    <tr>
+                        <th class="table__cell">#</th>
+                        <th class="table__cell">Обложка</th>
+                        <th class="table__cell">Описание</th>
+                        <th class="table__cell">Ссылка</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="track, iter : ${tracks}" class="table__row">
+                        <td class="table__index table__cell" th:text="${iter.count}">1</td>
+                        <td class="table__cover table__cell">
+                            <img th:src="${track.coverUrl}" src="../static/images/placeholder.svg" class="table__cover-img" alt="">
+                        </td>
+                        <td class="table__info table__cell">
+                            <p class="table__info-primary" th:text="${track.name}">Track</p>
+                            <p class="table__info-secondary" th:text="${track.artists}">Artist</p>
+                        </td>
+                        <td class="table__link table__cell">
+                            <a th:href="@{'https://open.spotify.com/track/' + ${track.id}}" class="button button_primary button_iconed">
+                                <img src="../static/images/spotify_icon_alt.svg" th:src="@{/images/spotify_icon_alt.svg}" alt="" class="button__icon">
+                                <span class="button__text">Открыть в Spotify</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="stats-container__item stats-container__tracks-analysis">
+                <h2 class="stats-container__item-header">Анализ предпочтений в музыке</h2>
+                <div class="plot">
+                    <canvas id="tracks-analysis-plot"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>

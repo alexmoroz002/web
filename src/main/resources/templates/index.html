@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/outlines.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.svg">
+    <script src="js/pageLoad.js"></script>
+    <script src="js/index.js"></script>
+    <title>SoundStats</title>
+</head>
+
+<body class="page page_header_fixed">
+
+<header th:replace="~{fragments/header}"></header>
+
+<main class="main">
+    <div class="main__inner">
+        <div class="welcome">
+            <h1>Добро пожаловать в <span class="name_colored">SoundStats</span></h1>
+            <p>
+                Веб-приложение, тесно связанное с вашим аккаунтом Spotify.
+                Управляйте вашими плейлистами, изучайте самые популярные треки и многое другое!
+            </p>
+        </div>
+
+        <article class="top-tracks">
+            <h2 class="top-tracks__title">Топ-5 треков
+                <time datetime="2023-09-19">сегодня</time>
+            </h2>
+            <table class="table" id="top-tracks-table">
+                <thead class="table__header">
+                <tr>
+                    <th class="table__cell">#</th>
+                    <th class="table__cell">Обложка</th>
+                    <th class="table__cell">Описание</th>
+                    <th class="table__cell">Ссылка</th>
+                </tr>
+                </thead>
+                <tbody id="top-tracks-tb">
+                <tr>
+                    <td>
+                        <div class="overlay" id="preloader">
+                            <img src="images/loading.gif" height="100">
+                            <p>Загрузка</p>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <article class="flex-list">
+            <h2 class="flex-list__header">Особенности</h2>
+            <article class="flex-list__item feature">
+                <div class="feature__info">Просматривайте свои наиболее прослушиваемые треки и исполнителей</div>
+                <img src="images/ranking.svg" class="feature__img" alt="ranking">
+            </article>
+            <article class="flex-list__item feature">
+                <div class="feature__info">Изучайте свои жанровые предпочтения</div>
+                <img src="images/music_genres.svg" class="feature__img" alt="music instruments">
+            </article>
+            <article class="flex-list__item feature">
+                <div class="feature__info">Создавайте персонализированные плейлисты используя различные алгоритмы</div>
+                <img src="images/album.svg" class="feature__img" alt="music album">
+            </article>
+            <article class="flex-list__item feature">
+                <div class="feature__info">Создавайте плейлисты на основе самых популярных треков в мире</div>
+                <img src="images/playlist.svg" class="feature__img" alt="playlist">
+            </article>
+            <article class="flex-list__item feature">
+                <div class="feature__info">И многое другое!</div>
+                <img src="images/features_list.svg" class="feature__img" alt="list">
+            </article>
+            <aside class="flex-list__footer">
+                <p>
+                    Для получения доступа ко всему функционалу вам необходим
+                    аккаунт Spotify <strong>с активной подпиской Spotify Premium</strong>
+                </p>
+            </aside>
+        </article>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>
