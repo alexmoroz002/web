@@ -1,47 +1,12 @@
-package ru.webitmo.soundstats
+package ru.webitmo.soundstats.application
 
-import org.springframework.stereotype.Controller
-import org.springframework.ui.Model
-import org.springframework.ui.set
-import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.stereotype.Service
+import ru.webitmo.soundstats.application.entities.Artist
+import ru.webitmo.soundstats.application.entities.Track
 
-// Архитектура очень плохая, я понимаю, обещаю ее обязательно переделать к следующим лабам
-@Controller
-class PagesController {
-    @GetMapping("")
-    fun getIndex(model : Model) : String {
-        return "index"
-    }
-
-    @GetMapping("/logged")
-    fun getLoggedIndex(model : Model) : String {
-        val user = User(
-            "42abb0odou3wd23wazdipl7xg",
-            "BR",
-            false,
-            "token",
-            "refreshToken",
-            "Alex Moroz",
-            "avatar",
-            "premium"
-        )
-        model["user"] = user
-        return "index"
-    }
-
-    @GetMapping("/statistics")
-    fun getStats(model : Model) : String {
-        model["artists"] = mockLikedArtists()
-        model["tracks"] = mockLikedTracks()
-        return "statistics"
-    }
-
-    @GetMapping("/playlists")
-    fun getPlaylists(model : Model) : String {
-        return "playlists"
-    }
-
-    private fun mockLikedArtists() : List<Artist> {
+@Service
+class PagesService {
+    fun getLikedArtists() : List<Artist> {
         return listOf(
             Artist("https://i.scdn.co/image/ab6761610000e5ebae7c78bd69ba795e7f9b7d04", "Battle Tapes", "2TdEIqWbLnZZHYRDWvVj67", ),
             Artist("https://i.scdn.co/image/ab6761610000e5ebc1fded2a185c54df399fe63a", "The Score", "2q3GG88dVwuQPF4FmySr9I"),
@@ -51,7 +16,7 @@ class PagesController {
         )
     }
 
-    private fun mockLikedTracks() : List<Track> {
+    fun getLikedTracks() : List<Track> {
         return listOf(
             Track("https://i.scdn.co/image/ab67616d0000b27316cf696d7085df82f77b59f5", "カミイロアワセ", "77spgc3VsjeFMi8ged5cOO", listOf("binaria").joinToString()),
             Track("https://i.scdn.co/image/ab67616d0000b273b7adc833cd0d61833462d082", "Control", "4EsS7kgS3ztITT00pH0KG6", listOf("Battle Tapes").joinToString()),
