@@ -1,7 +1,8 @@
-package ru.webitmo.soundstats
+package ru.webitmo.soundstats.application
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import ru.webitmo.soundstats.authorization.entities.User
 
 @Service
 class UsersService {

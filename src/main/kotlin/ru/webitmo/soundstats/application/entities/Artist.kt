@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats
+package ru.webitmo.soundstats.application.entities
 
 class Artist (
     var coverUrl : String = "",

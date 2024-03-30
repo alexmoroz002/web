@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats
+package ru.webitmo.soundstats.application
 
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ModelAttribute
@@ -10,7 +10,6 @@ class NavigationControllerAdvice {
         return listOf(
             NavigationItem("statistics", "Статистика"),
             NavigationItem("playlists", "Плейлисты"),
-            NavigationItem("logged", "Превью пользователя"),
         )
     }
 }
