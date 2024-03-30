@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,8 +10,8 @@
             <img src="images/logo.svg" alt="" class="logo__icon">
             <h2 class="logo__name">SoundStats</h2>
         </a>
-        <nav class="nav-menu" th:replace="~{fragments/navMenu :: navMenu}"></nav>
-        <a th:href="@{/logged}" th:replace="${null != user} ? ~{fragments/userHeaderInfo :: loginInfo} : _" class="button button_primary button_iconed">
+        <nav class="nav-menu" th:replace="~{fragments/navMenu :: navMenu}" sec:authorize="isAuthenticated()"></nav>
+        <a href="/oauth2/authorization/oauth2-client" th:replace="${#authorization.expression('isAuthenticated()')} ? ~{fragments/userHeaderInfo :: loginInfo} : _" class="button button_primary button_iconed">
             <img src="images/spotify_icon_alt.svg" alt="" class="button__icon">
             <b class="button__text">Войти через Spotify</b>
         </a>
