@@ -7,7 +7,7 @@ spring:
             provider: spotify
             client-id: ${CLIENT_ID}
             client-secret: ${CLIENT_SECRET}
-            redirect-uri: http://localhost:1984/login/oauth2/code/spotify
+            redirect-uri: https://alexmoroz-web.onrender.com/login/oauth2/code/spotify
             client-authentication-method: client_secret_basic
             authorization-grant-type: authorization_code
             scope:
