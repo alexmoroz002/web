@@ -20,22 +20,23 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.postgresql:postgresql")
-//	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
-//	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.session:spring-session-jdbc:3.2.2")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	implementation("com.squareup.okhttp3:okhttp:4.12.0")
-	implementation("com.adamratzman:spotify-api-kotlin-core:4.1.0")
+	implementation("com.adamratzman:spotify-api-kotlin-core:4.1.1")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-//	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
+	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE")
+	implementation("org.springframework:spring-webflux")
+	implementation("io.projectreactor.netty:reactor-netty")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("com.h2database:h2")
-//	testImplementation("org.springframework.security:spring-security-test")
+	testImplementation("org.springframework.security:spring-security-test")
 }
 
 tasks.withType<KotlinCompile> {
