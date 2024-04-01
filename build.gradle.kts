@@ -35,6 +35,8 @@ dependencies {
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE")
 	implementation("org.springframework:spring-webflux")
 	implementation("io.projectreactor.netty:reactor-netty")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0")
+	implementation("org.springframework.security:spring-security-oauth2-resource-server:6.2.3")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
