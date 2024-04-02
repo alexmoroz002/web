@@ -12,8 +12,7 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @OpenAPIDefinition(
-    info = Info(title = "Application REST API", description = "My application REST API", version = "0.0.1"),
-    servers = [Server(url = "http://localhost:1984", description = "Default URL")]
+    info = Info(title = "Application REST API", description = "My application REST API", version = "0.0.1")
 )
 @SecurityScheme(name = "authorization", type = SecuritySchemeType.OAUTH2,
     flows = OAuthFlows(
