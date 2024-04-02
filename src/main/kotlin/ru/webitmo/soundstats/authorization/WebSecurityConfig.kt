@@ -21,9 +21,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
 @Configuration
 @EnableWebSecurity
-@Order(1)
 class WebSecurityConfig(val customUserService : UsersAuthService) {
     @Bean
+    @Order(2)
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http {
             authorizeRequests {

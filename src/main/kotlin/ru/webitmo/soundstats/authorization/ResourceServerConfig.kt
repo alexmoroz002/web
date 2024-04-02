@@ -10,9 +10,9 @@ import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
 @EnableWebSecurity
-@Order(2)
 class ResourceServerConfig {
     @Bean
+    @Order(1)
     fun resourceFilterChain(http: HttpSecurity): SecurityFilterChain {
         http {
             securityMatcher("/api/**")
