@@ -1,29 +1,42 @@
 package ru.webitmo.soundstats.authorization
 
-import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClient
-import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient
-import org.springframework.security.oauth2.client.web.reactive.function.client.ServerOAuth2AuthorizedClientExchangeFilterFunction.oauth2AuthorizedClient
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.security.SecurityRequirement
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.reactive.function.client.WebClientResponseException
 import reactor.core.publisher.Mono
 
 
 @RestController
+@RequestMapping("/api/auth")
+@CrossOrigin("*")
+@SecurityRequirement(name = "auth")
 class AuthController(private val webClient: WebClient) {
-    @RequestMapping("/sso")
-    fun user(@RegisteredOAuth2AuthorizedClient authorizedClient: OAuth2AuthorizedClient) : Mono<String> {
+    @Operation(summary = "Department Users",  description = "Retrieves the Users of a Department by DeparmentID",
+        security = [SecurityRequirement(name = "auth")]
+    )
+    @GetMapping("/me")
+    fun userInfo() : Mono<String> {
         return webClient.get()
             .uri("https://api.spotify.com/v1/me")
-            .attributes(oauth2AuthorizedClient(authorizedClient))
             .retrieve()
             .bodyToMono(String::class.java)
     }
 
-    @RequestMapping("/test")
-    fun test() : String {
-        val user = SecurityContextHolder.getContext().authentication
-        return user.name
+    @Operation(summary = "Department Users",  description = "Retrieves the Users of a Department by DeparmentID",
+        security = [SecurityRequirement(name = "auth")]
+    )
+    @GetMapping("/artists")
+    fun artists() : Mono<String> {
+        return webClient.get()
+            .uri("https://api.spotify.com/v1/me/top/artists")
+            .retrieve()
+            .bodyToMono(String::class.java)
     }
+
+    @ExceptionHandler(WebClientResponseException::class)
+    fun handleWebClientException(ex : WebClientResponseException) : ResponseEntity<String> =
+        ResponseEntity<String>(ex.responseBodyAsString, ex.headers, ex.statusCode)
 }
