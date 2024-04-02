@@ -28,6 +28,6 @@ class SpotifyAuthorizedUser(
     }
 
     fun prototype() : User {
-        return User(this.spotifyId, this.country, this.isExplicitFiltered, this.name, this.avatarUrl, this.product)
+        return User(this.spotifyId, this.country, this.isExplicitFiltered, this.userName, this.avatarUrl, this.product)
     }
 }
