@@ -26,4 +26,8 @@ class SpotifyAuthorizedUser(
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         return authorities
     }
+
+    fun prototype() : User {
+        return User(this.spotifyId, this.country, this.isExplicitFiltered, this.name, this.avatarUrl, this.product)
+    }
 }

@@ -15,17 +15,8 @@ class UsersAuthService : DefaultOAuth2UserService() {
     override fun loadUser(userRequest : OAuth2UserRequest) : SpotifyAuthorizedUser {
         val oAuth2User = super.loadUser(userRequest)
         val authorizedUser = SpotifyAuthorizedUser(oAuth2User.attributes, oAuth2User.authorities)
-        if (usersService.getUser(oAuth2User.name) == null) {
-            val user = User(
-                spotifyId = oAuth2User.attributes["id"] as String,
-                country = oAuth2User.attributes["country"] as String,
-                isExplicitFiltered = (oAuth2User.attributes["explicit_content"] as Map<*, *>)["filter_enabled"] as Boolean,
-                userName = oAuth2User.attributes["display_name"] as String?,
-                avatarUrl = (((oAuth2User.attributes["images"] as ArrayList<*>).last()) as Map<*,*>)["url"] as String,
-                product = oAuth2User.attributes["product"] as String?
-            )
-            usersService.saveUser(user)
-        }
+        val user = authorizedUser.prototype()
+        usersService.saveUser(user)
         return authorizedUser
     }
 }
