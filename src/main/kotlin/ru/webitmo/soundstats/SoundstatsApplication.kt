@@ -9,18 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-@SecurityScheme(name = "auth", type = SecuritySchemeType.OAUTH2,
-	flows = OAuthFlows(
-		authorizationCode = OAuthFlow(
-			authorizationUrl = "https://accounts.spotify.com/authorize",
-			tokenUrl = "https://accounts.spotify.com/api/token",
-			scopes = [
-				OAuthScope(name = "user-read-private", description = "Read user info"),
-				OAuthScope(name = "user-top-read", description = "Read user top items")
-			]
-		)
-	)
-)
 class SoundstatsApplication
 
 fun main(args: Array<String>) {

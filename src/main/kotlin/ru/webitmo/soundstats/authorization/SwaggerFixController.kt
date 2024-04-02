@@ -10,13 +10,14 @@ import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.util.stream.Collectors
 
-// ОЧЕНЬ плохой хак для ОЧЕНЬ плохой "фичи" https://github.com/swagger-api/swagger-ui/commit/937c8f6208f3adf713b10a349a82a1b129bd0ffd
+// ОЧЕНЬ плохой хак для ОЧЕНЬ плохой "фичи"
+// https://github.com/swagger-api/swagger-ui/commit/937c8f6208f3adf713b10a349a82a1b129bd0ffd
 
 @RestController
+@Hidden
 @RequestMapping(path = ["/swagger-ui"])
 class SwaggerFixController {
     @GetMapping(path = ["/index.html"])
-    @Hidden
     fun addJsFix(): String {
         val orig = toText(javaClass.getResourceAsStream("/META-INF/resources/webjars/swagger-ui/5.11.8/index.html"))
         return "$orig\n\n<script charset=\"UTF-8\"> ${script()} </script>"
