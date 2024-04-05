@@ -1,5 +1,6 @@
 package ru.webitmo.soundstats.application
 
+import kotlinx.coroutines.delay
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -12,19 +13,19 @@ import ru.webitmo.soundstats.application.entities.Track
 @Controller
 class PagesController(val service: PagesService) {
     @GetMapping("")
-    fun getIndex(model : Model) : String {
+    suspend fun getIndex(model : Model) : String {
         return "index"
     }
 
     @GetMapping("/statistics")
-    fun getStats(model : Model) : String {
+    suspend fun getStats(model : Model) : String {
         model["artists"] = service.getLikedArtists()
         model["tracks"] = service.getLikedTracks()
         return "statistics"
     }
 
     @GetMapping("/playlists")
-    fun getPlaylists(model : Model) : String {
+    suspend fun getPlaylists(model : Model) : String {
         return "playlists"
     }
 
