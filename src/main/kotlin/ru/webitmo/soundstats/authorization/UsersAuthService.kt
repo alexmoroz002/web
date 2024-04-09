@@ -6,7 +6,6 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest
 import org.springframework.stereotype.Service
 import ru.webitmo.soundstats.application.UsersService
 import ru.webitmo.soundstats.authorization.entities.SpotifyAuthorizedUser
-import ru.webitmo.soundstats.authorization.entities.User
 
 @Service
 class UsersAuthService : DefaultOAuth2UserService() {
@@ -15,8 +14,11 @@ class UsersAuthService : DefaultOAuth2UserService() {
     override fun loadUser(userRequest : OAuth2UserRequest) : SpotifyAuthorizedUser {
         val oAuth2User = super.loadUser(userRequest)
         val authorizedUser = SpotifyAuthorizedUser(oAuth2User.attributes, oAuth2User.authorities)
-        val user = authorizedUser.prototype()
-        usersService.saveUser(user)
+        val existingUser = usersService.getUser(authorizedUser.spotifyId)
+        if (existingUser != null) {
+            authorizedUser.updatePrototype(existingUser)
+        }
+        usersService.saveUser(authorizedUser.getPrototype())
         return authorizedUser
     }
 }

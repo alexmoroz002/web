@@ -27,7 +27,12 @@ class SpotifyAuthorizedUser(
         return authorities
     }
 
-    fun prototype() : User {
+    fun getPrototype() : User {
         return User(this.spotifyId, this.country, this.isExplicitFiltered, this.userName, this.avatarUrl, this.product)
+    }
+
+    fun updatePrototype(user : User) {
+        this.userName = user.userName
+        this.avatarUrl = user.avatarUrl
     }
 }
