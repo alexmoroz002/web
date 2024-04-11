@@ -1,0 +1,39 @@
+@use "../common.blocks/_page.scss";
+@use "../common.blocks/_header.scss";
+@use "../common.blocks/_logo.scss";
+@use "../common.blocks/_nav-menu.scss";
+@use "../common.blocks/_menu.scss";
+@use "../common.blocks/_nav-button.scss";
+@use "../common.blocks/_button.scss";
+@use "../common.blocks/_ham-menu.scss";
+@use "../common.blocks/_ham-button.scss";
+
+@use "../common.blocks/_main.scss";
+@use "../common.blocks/_welcome.scss";
+@use "../common.blocks/_top-tracks.scss";
+@use "../common.blocks/_table.scss";
+@use "../common.blocks/_flex-list.scss";
+@use "../common.blocks/_feature.scss";
+@use "../common.blocks/_generator.scss";
+@use "../common.blocks/_stats-container.scss";
+@use "../common.blocks/_plot.scss";
+@use "../common.blocks/_overlay.scss";
+
+@use "../common.blocks/_footer.scss";
+@use "../common.blocks/_link.scss";
+
+
+:root {
+    --text: #000000;
+    --text-secondary: color-mix(in srgb, var(--text) 65%, var(--background));
+    --background: #e7f5fd;
+    --primary: #105684;
+    --secondary: #cbe9fb;
+    --accent: #2282bf;
+    --accent-alt: #bf2222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

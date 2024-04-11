@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats
+package ru.webitmo.soundstats.application
 
 class NavigationItem (
     val uri : String,

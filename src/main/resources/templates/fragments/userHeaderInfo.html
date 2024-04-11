@@ -6,9 +6,9 @@
     <title>Title</title>
 </head>
 <body>
-    <a th:href="@{'https://open.spotify.com/user/' + ${user.id}}" class="button button_primary button_iconed" th:fragment="loginInfo">
-        <img th:src="${user.imageUrl} ?: '/images/profile.svg'" alt="" class="button__icon">
-        <b class="button__text" th:text="${user.name}">Войти через Spotify</b>
+    <a th:href="@{'https://open.spotify.com/user/' + ${#authentication.principal.spotifyId}}" class="button button_primary button_iconed" th:fragment="loginInfo">
+        <img th:src="${#authentication.principal.avatarUrl} ?: '/images/profile.svg'" alt="" class="button__icon">
+        <b class="button__text" th:text="${#authentication.principal.userName}">Войти через Spotify</b>
     </a>
 </body>
 </html>
