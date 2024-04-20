@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats.authorization.entities
+package ru.webitmo.soundstats.users.entities
 
 import jakarta.persistence.*
 import java.io.Serializable

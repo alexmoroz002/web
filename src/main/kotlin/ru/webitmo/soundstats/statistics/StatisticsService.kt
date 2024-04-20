@@ -1,11 +1,11 @@
-package ru.webitmo.soundstats.application
+package ru.webitmo.soundstats.statistics
 
 import org.springframework.stereotype.Service
-import ru.webitmo.soundstats.application.entities.Artist
-import ru.webitmo.soundstats.application.entities.Track
+import ru.webitmo.soundstats.playlists.entities.Artist
+import ru.webitmo.soundstats.playlists.entities.Track
 
 @Service
-class PagesService {
+class StatisticsService {
     fun getLikedArtists() : List<Artist> {
         return listOf(
             Artist("https://i.scdn.co/image/ab6761610000e5ebae7c78bd69ba795e7f9b7d04", "Battle Tapes", "2TdEIqWbLnZZHYRDWvVj67", ),

@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats.application.entities
+package ru.webitmo.soundstats.playlists.entities
 
 class Track (
     var coverUrl : String = "",
