@@ -2,6 +2,7 @@ package ru.webitmo.soundstats.authorization.entities
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.oauth2.core.user.OAuth2User
+import ru.webitmo.soundstats.users.entities.User
 import java.io.Serializable
 
 class SpotifyAuthorizedUser(

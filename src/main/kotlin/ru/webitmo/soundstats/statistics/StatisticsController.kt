@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats.authorization
+package ru.webitmo.soundstats.statistics
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono
 @CrossOrigin("*")
 @Tag(name = "Content", description = "Sample OAuth methods")
 @SecurityRequirement(name = "authorization")
-class ApiController(private val webClient: WebClient) {
+class StatisticsController(private val webClient: WebClient) {
     @Operation(summary = "User info",  description = "Retrieves information about authenticated User",
         security = [SecurityRequirement(name = "authorization", scopes = ["user-read-private"])],
         responses = [

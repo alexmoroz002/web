@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats.authorization
+package ru.webitmo.soundstats.spotify
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
