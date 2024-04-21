@@ -3,18 +3,17 @@ package ru.webitmo.soundstats.spotify.dto
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class SingleTrackFeaturesDto(
-    var acousticness : Float,
-    var danceability : Float,
-    var energy : Float,
-    var id : String,
-    var instrumentalness : Float,
-    var liveness : Float,
-    var loudness : Float,
-    var speechiness : Float,
-    var tempo : Float,
+    var acousticness : Double,
+    var danceability : Double,
+    var instrumentalness : Double,
+    var liveness : Double,
+    var loudness : Double,
+    var speechiness : Double,
+    var tempo : Double,
     @JsonProperty("time_signature") var timeSignature : Int,
-    var uri : String,
-    var valence : Float
+    var valence : Double,
+    var energy : Double,
+    var id : String = "",
 )
 
 data class TrackFeaturesDto(

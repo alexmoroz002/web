@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.WebClientResponseException
 import reactor.core.publisher.Mono
+import ru.webitmo.soundstats.spotify.dto.*
 
 
 @RestController
-@RequestMapping("/api/protected")
+@RequestMapping("/api/statistics")
 @CrossOrigin("*")
-@Tag(name = "Content", description = "Sample OAuth methods")
+@Tag(name = "Statistics", description = "Sample OAuth methods")
 @SecurityRequirement(name = "authorization")
-class StatisticsController(private val webClient: WebClient) {
+class StatisticsController(private val webClient : WebClient, private val service : StatisticsService) {
     @Operation(summary = "User info",  description = "Retrieves information about authenticated User",
         security = [SecurityRequirement(name = "authorization", scopes = ["user-read-private"])],
         responses = [
@@ -37,43 +38,66 @@ class StatisticsController(private val webClient: WebClient) {
             .bodyToMono(String::class.java)
     }
 
-    @Operation(summary = "Top artists",  description = "Retrieves authenticated User top artists",
-        security = [SecurityRequirement(name = "authorization", scopes = ["user-top-read"])],
-        responses = [
-            ApiResponse(description = "Artists list",
-                content = [Content(mediaType = "application/json")]),
-            ApiResponse(responseCode = "401", description = "User not authorized",
-                content = [Content(mediaType = "application/json")]),
-            ApiResponse(responseCode = "403", description = "Not enough permissions",
-                content = [Content(mediaType = "application/json")])
-        ]
-    )
+    @Operation(summary = "Top artists",  description = "Retrieves authenticated User top artists")
     @GetMapping("/artists")
-    fun topArtists() : Mono<String> {
-        return webClient.get()
-            .uri("https://api.spotify.com/v1/me/top/artists")
-            .retrieve()
-            .bodyToMono(String::class.java)
+    suspend fun userTopArtists() : List<ArtistDto> {
+        return service.getTopArtists()
     }
 
-    @Operation(summary = "Top tracks",  description = "Retrieves authenticated User top tracks",
-        security = [SecurityRequirement(name = "authorization", scopes = ["user-top-read"])],
-        responses = [
-            ApiResponse(description = "Top list",
-                content = [Content(mediaType = "application/json")]),
-            ApiResponse(responseCode = "401", description = "User not authorized",
-                content = [Content(mediaType = "application/json")]),
-            ApiResponse(responseCode = "403", description = "Not enough permissions",
-                content = [Content(mediaType = "application/json")])
-        ]
-    )
+    @Operation(summary = "Top tracks",  description = "Retrieves authenticated User top tracks")
     @GetMapping("/tracks")
-    fun topTracks() : Mono<String> {
-        return webClient.get()
-            .uri("https://api.spotify.com/v1/me/top/tracks")
-            .retrieve()
-            .bodyToMono(String::class.java)
+    suspend fun userTopTracks() : List<TrackDto> {
+        return service.getTopTracks()
     }
+
+    @GetMapping("/genres")
+    suspend fun userTopGenres() : Map<String, Int> {
+        return service.getTopGenres()
+    }
+
+    @GetMapping("/profile")
+    suspend fun userMusicProfile() : SingleTrackFeaturesDto {
+        return service.getTopFeatures()
+    }
+
+//    @GetMapping("/features")
+//    suspend fun feat() : TrackFeaturesDto {
+//        return service.getTracksFeatures(service.getUserTopTracks().items)
+//    }
+//
+//    @GetMapping("/track")
+//    suspend fun track() : TrackDto {
+//        return webClient.get()
+//            .uri("https://api.spotify.com/v1/tracks/5ESoZamdGtJyucO9GHQExV?si=ccd41ad32c914bd4")
+//            .retrieve()
+//            .awaitBody()
+//    }
+//
+//    @GetMapping("/playlist")
+//    suspend fun playlist(@RequestParam id : String) : PlaylistDto {
+//        return webClient.get()
+//            .uri("https://api.spotify.com/v1/playlists/${id}")
+//            .retrieve()
+//            .awaitBody()
+//    }
+//
+//    @GetMapping("/album")
+//    fun album(@RequestParam id : String) : AlbumDto? {
+//        return webClient.get()
+//            .uri("https://api.spotify.com/v1/albums/${id}")
+//            .retrieve()
+//            .bodyToMono(AlbumDto::class.java)
+//            .block()
+//    }
+//
+//    @GetMapping("/artist")
+//    fun artist() : ArtistDto? {
+//        return webClient.get()
+//            .uri("https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg")
+//            .retrieve()
+//            .bodyToMono(ArtistDto::class.java)
+//            .block()
+//    }
 
     @ExceptionHandler(WebClientResponseException::class)
     fun handleWebClientException(ex : WebClientResponseException) : ResponseEntity<String> =

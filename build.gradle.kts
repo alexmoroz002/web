@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
 	kotlin("plugin.jpa") version "1.9.22"
+	kotlin("plugin.serialization") version "1.9.22"
 }
 
 group = "ru.web-itmo"
@@ -23,6 +24,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.postgresql:postgresql")
+	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 	implementation("org.springframework.session:spring-session-jdbc:3.2.2")
 	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")

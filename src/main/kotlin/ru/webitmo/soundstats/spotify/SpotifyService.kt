@@ -16,14 +16,14 @@ class SpotifyService(private val webClient: WebClient) {
 
     suspend fun getUserTopArtists() : TopArtistsDto {
         return webClient.get()
-            .uri("https://api.spotify.com/v1/me/top/artists")
+            .uri("https://api.spotify.com/v1/me/top/artists?limit=50")
             .retrieve()
             .awaitBody()
     }
 
     suspend fun getUserTopTracks() : TopTracksDto {
         return webClient.get()
-            .uri("https://api.spotify.com/v1/me/top/tracks")
+            .uri("https://api.spotify.com/v1/me/top/tracks?limit=50")
             .retrieve()
             .awaitBody()
     }
