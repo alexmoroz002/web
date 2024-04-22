@@ -37,19 +37,13 @@ class CustomWebClientConfig {
     }
 
     @Bean
-    fun authorizedClientManager(
-        clientRegistrationRepository: ClientRegistrationRepository?,
-        clientService: OAuth2AuthorizedClientService?
-    ): OAuth2AuthorizedClientManager {
-        val authorizedClientProvider =
-            OAuth2AuthorizedClientProviderBuilder.builder()
-                .clientCredentials()
+    fun authorizedClientManager(clientRegistrationRepository: ClientRegistrationRepository?, clientService: OAuth2AuthorizedClientService?): OAuth2AuthorizedClientManager {
+        val authorizedClientProvider = OAuth2AuthorizedClientProviderBuilder.builder()
+                .authorizationCode()
+                .refreshToken()
                 .build()
 
-        val authorizedClientManager =
-            AuthorizedClientServiceOAuth2AuthorizedClientManager(
-                clientRegistrationRepository, clientService
-            )
+        val authorizedClientManager = AuthorizedClientServiceOAuth2AuthorizedClientManager(clientRegistrationRepository, clientService)
         authorizedClientManager.setAuthorizedClientProvider(authorizedClientProvider)
 
         return authorizedClientManager

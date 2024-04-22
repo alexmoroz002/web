@@ -7,30 +7,29 @@ import ru.webitmo.soundstats.spotify.dto.*
 
 @Service
 class SpotifyService(private val webClient: WebClient) {
-    suspend fun getWorldTop() : PlaylistDto {
+    suspend fun getWorldTop(limit : Int) : PlaylistItemDto {
         return webClient.get()
-            .uri("https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF")
+            .uri("https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF/tracks?limit=${limit}")
             .retrieve()
             .awaitBody()
     }
 
-    suspend fun getUserTopArtists() : TopArtistsDto {
+    suspend fun getUserTopArtists(limit: Int) : TopArtistsDto {
         return webClient.get()
-            .uri("https://api.spotify.com/v1/me/top/artists?limit=50")
+            .uri("https://api.spotify.com/v1/me/top/artists?limit=${limit}")
             .retrieve()
             .awaitBody()
     }
 
-    suspend fun getUserTopTracks() : TopTracksDto {
+    suspend fun getUserTopTracks(limit: Int) : TopTracksDto {
         return webClient.get()
-            .uri("https://api.spotify.com/v1/me/top/tracks?limit=50")
+            .uri("https://api.spotify.com/v1/me/top/tracks?limit=${limit}")
             .retrieve()
             .awaitBody()
     }
 
     suspend fun getTracksFeatures(tracks : List<TrackDto>) : TrackFeaturesDto {
         val seed = tracks.joinToString(",") { it.id }
-        println(seed)
         return webClient.get()
             .uri("https://api.spotify.com/v1/audio-features?ids=${seed}")
             .retrieve()

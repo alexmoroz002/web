@@ -16,7 +16,7 @@ import ru.webitmo.soundstats.spotify.dto.*
 @RestController
 @RequestMapping("/api/statistics")
 @CrossOrigin("*")
-@Tag(name = "Statistics", description = "Sample OAuth methods")
+@Tag(name = "Statistics", description = "Get Spotify statistics of authenticated user")
 @SecurityRequirement(name = "authorization")
 class StatisticsController(private val webClient : WebClient, private val service : StatisticsService) {
     @Operation(summary = "User info",  description = "Retrieves information about authenticated User",
@@ -40,14 +40,14 @@ class StatisticsController(private val webClient : WebClient, private val servic
 
     @Operation(summary = "Top artists",  description = "Retrieves authenticated User top artists")
     @GetMapping("/artists")
-    suspend fun userTopArtists() : List<ArtistDto> {
-        return service.getTopArtists()
+    suspend fun userTopArtists(@RequestParam limit : Int = 5) : List<ArtistDto> {
+        return service.getTopArtists(limit)
     }
 
     @Operation(summary = "Top tracks",  description = "Retrieves authenticated User top tracks")
     @GetMapping("/tracks")
-    suspend fun userTopTracks() : List<TrackDto> {
-        return service.getTopTracks()
+    suspend fun userTopTracks(@RequestParam limit : Int = 5) : List<TrackDto> {
+        return service.getTopTracks(limit)
     }
 
     @GetMapping("/genres")
@@ -59,45 +59,6 @@ class StatisticsController(private val webClient : WebClient, private val servic
     suspend fun userMusicProfile() : SingleTrackFeaturesDto {
         return service.getTopFeatures()
     }
-
-//    @GetMapping("/features")
-//    suspend fun feat() : TrackFeaturesDto {
-//        return service.getTracksFeatures(service.getUserTopTracks().items)
-//    }
-//
-//    @GetMapping("/track")
-//    suspend fun track() : TrackDto {
-//        return webClient.get()
-//            .uri("https://api.spotify.com/v1/tracks/5ESoZamdGtJyucO9GHQExV?si=ccd41ad32c914bd4")
-//            .retrieve()
-//            .awaitBody()
-//    }
-//
-//    @GetMapping("/playlist")
-//    suspend fun playlist(@RequestParam id : String) : PlaylistDto {
-//        return webClient.get()
-//            .uri("https://api.spotify.com/v1/playlists/${id}")
-//            .retrieve()
-//            .awaitBody()
-//    }
-//
-//    @GetMapping("/album")
-//    fun album(@RequestParam id : String) : AlbumDto? {
-//        return webClient.get()
-//            .uri("https://api.spotify.com/v1/albums/${id}")
-//            .retrieve()
-//            .bodyToMono(AlbumDto::class.java)
-//            .block()
-//    }
-//
-//    @GetMapping("/artist")
-//    fun artist() : ArtistDto? {
-//        return webClient.get()
-//            .uri("https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg")
-//            .retrieve()
-//            .bodyToMono(ArtistDto::class.java)
-//            .block()
-//    }
 
     @ExceptionHandler(WebClientResponseException::class)
     fun handleWebClientException(ex : WebClientResponseException) : ResponseEntity<String> =

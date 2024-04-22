@@ -13,7 +13,7 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 @SecurityRequirement(name = "authorization")
 class SpotifyController(private val service : SpotifyService) {
     @GetMapping("/top")
-    suspend fun topTracks() = service.getWorldTop()
+    suspend fun topTracks(@RequestParam limit : Int = 20) = service.getWorldTop(limit)
 
     @ExceptionHandler(WebClientResponseException::class)
     fun handleWebClientException(ex : WebClientResponseException) : ResponseEntity<String> =

@@ -6,7 +6,9 @@ data class PlaylistDto(
     var id : String,
     var images : List<ImageDto>,
     var tracks : PlaylistItemDto,
-)
+) {
+    val url : String get() = "https://open.spotify.com/playlist/${id}"
+}
 
 data class PlaylistItemDto(
     var items : List<PlaylistInnerDto>

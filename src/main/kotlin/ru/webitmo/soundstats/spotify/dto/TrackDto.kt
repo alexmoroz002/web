@@ -5,4 +5,6 @@ data class TrackDto(
     var artists : List<ArtistDto>,
     var id : String,
     var name : String,
-)
+) {
+    val url : String get() = "https://open.spotify.com/track/${id}"
+}
