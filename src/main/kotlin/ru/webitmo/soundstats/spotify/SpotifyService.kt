@@ -1,5 +1,6 @@
 package ru.webitmo.soundstats.spotify
 
+import org.springframework.http.ResponseEntity
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.BodyInserters
@@ -56,8 +57,7 @@ class SpotifyService(private val webClient: WebClient) {
             .awaitBody()
     }
 
-    suspend fun createPlaylist(info : PlaylistInfoDto) : PlaylistDto {
-        val user = SecurityContextHolder.getContext().authentication.name
+    suspend fun createPlaylist(user : String, info : PlaylistInfoDto) : PlaylistDto {
         val body = mapOf(Pair("name", info.name), Pair("description", info.desc), Pair("public", info.public))
         return webClient.post()
             .uri("https://api.spotify.com/v1/users/${user}/playlists")
@@ -66,7 +66,12 @@ class SpotifyService(private val webClient: WebClient) {
             .awaitBody()
     }
 
-    suspend fun addItemsToPlaylist(playlistDto : PlaylistDto) {
-        TODO()
+    suspend fun addItemsToPlaylist(playlist : PlaylistDto, tracks : List<TrackDto>) {
+        val uri = "https://api.spotify.com/v1/playlists/${playlist.id}/tracks?uris=${tracks.joinToString(",") { it.uri }}"
+        println(uri)
+        webClient.post()
+            .uri(uri)
+            .retrieve()
+            .awaitBody<Any>()
     }
 }

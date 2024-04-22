@@ -14,8 +14,8 @@ import ru.webitmo.soundstats.statistics.StatisticsService
 @SecurityRequirement(name = "authorization")
 class PlaylistsController(private val service: PlaylistsService, private val spotifyService: SpotifyService, private val statisticsService: StatisticsService) {
     @PostMapping("/create/world")
-    suspend fun createPlaylistWorld(@RequestParam id : String) : String {
-        return service.createWorldPlaylist(id)
+    suspend fun createPlaylistWorld() : String {
+        return service.createWorldPlaylist()
     }
 
     @GetMapping("/recs")

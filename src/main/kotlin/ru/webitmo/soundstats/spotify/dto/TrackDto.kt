@@ -7,4 +7,5 @@ data class TrackDto(
     var name : String,
 ) {
     val url : String get() = "https://open.spotify.com/track/${id}"
+    val uri : String get() = "spotify:track:${id}"
 }
