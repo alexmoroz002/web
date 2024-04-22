@@ -1,8 +1,11 @@
 package ru.webitmo.soundstats.spotify
 
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
+import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.awaitBody
+import ru.webitmo.soundstats.spotify.dto.PlaylistInfoDto
 import ru.webitmo.soundstats.spotify.dto.*
 
 @Service
@@ -36,11 +39,34 @@ class SpotifyService(private val webClient: WebClient) {
             .awaitBody()
     }
 
-    suspend fun getUserRecommendations(artists : List<ArtistDto>?, tracks : List<TrackDto>?, profile : SingleTrackFeaturesDto?) : List<TrackDto> {
-        TODO()
+    suspend fun getRecommendations(limit : Int, artists : List<ArtistDto> = emptyList(), tracks : List<TrackDto> = emptyList(), features : SingleTrackFeaturesDto? = null) : RecommendationsDto {
+        var baseUri = "https://api.spotify.com/v1/recommendations?limit=${limit}"
+        val seedArtists = artists.map { it.id }.shuffled().take(3)
+        if (seedArtists.isNotEmpty())
+            baseUri += "&seed_artists=${seedArtists.joinToString(",")}"
+        val seedTracks = tracks.map { it.id }.shuffled().take(5 - seedArtists.size)
+        if (seedTracks.isNotEmpty())
+            baseUri += "&seed_tracks=${seedTracks.joinToString(",")}"
+        if (features != null)
+            baseUri += "&target_acousticness=${features.acousticness}&target_danceability=${features.danceability}&target_energy=${features.energy}" +
+                    "&target_instrumentalness=${features.instrumentalness}&target_speechiness=${features.speechiness}&target_valence=${features.valence}"
+        return webClient.get()
+            .uri(baseUri)
+            .retrieve()
+            .awaitBody()
     }
 
-    suspend fun createPlaylist(playlist : PlaylistDto) {
+    suspend fun createPlaylist(info : PlaylistInfoDto) : PlaylistDto {
+        val user = SecurityContextHolder.getContext().authentication.name
+        val body = mapOf(Pair("name", info.name), Pair("description", info.desc), Pair("public", info.public))
+        return webClient.post()
+            .uri("https://api.spotify.com/v1/users/${user}/playlists")
+            .body(BodyInserters.fromValue(body))
+            .retrieve()
+            .awaitBody()
+    }
+
+    suspend fun addItemsToPlaylist(playlistDto : PlaylistDto) {
         TODO()
     }
 }

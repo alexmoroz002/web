@@ -22,7 +22,11 @@ import org.springframework.context.annotation.Configuration
             scopes = [
                 OAuthScope(name = "user-read-private", description = "Read subscription details"),
                 OAuthScope(name = "user-top-read", description = "Read user top items"),
-                OAuthScope(name = "user-follow-read", description = "Read user followed items")
+                OAuthScope(name = "user-follow-read", description = "Read user followed items"),
+                OAuthScope(name = "playlist-modify-private", description = "Edit private playlists"),
+                OAuthScope(name = "playlist-modify-public", description = "Edit public playlists"),
+                OAuthScope(name = "user-library-read", description = "Read user saved tracks"),
+                OAuthScope(name = "user-library-modify", description = "Modify user saved tracks")
             ]
         )
     )

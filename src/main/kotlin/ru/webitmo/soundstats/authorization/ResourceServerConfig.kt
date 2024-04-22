@@ -25,6 +25,7 @@ class ResourceServerConfig {
                     introspector = SpotifyTokenIntrospector()
                 }
             }
+            csrf { disable() }
         }
         return http.build()
     }

@@ -41,6 +41,7 @@ class WebSecurityConfig(val customUserService : UsersAuthService) {
             oauth2Login {
                 userInfoEndpoint { userService = oauth2UserService() }
             }
+            csrf { disable() }
             oauth2Client {  }
         }
         return http.build()

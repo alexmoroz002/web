@@ -1,8 +1,12 @@
 package ru.webitmo.soundstats.playlists.entities
 
-class Track (
-    var coverUrl : String = "",
-    var name : String = "",
-    var id : String = "",
-    var artists : String = ""
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.Table
+
+@Entity
+@Table(name = "tracks")
+data class Track (
+    @Id
+    var id : String
 )
