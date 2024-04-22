@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats.authorization
+package ru.webitmo.soundstats.authorization.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -17,6 +17,7 @@ import org.springframework.security.web.SecurityFilterChain
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import ru.webitmo.soundstats.authorization.UsersAuthService
 
 
 @Configuration
