@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="../static/css/outlines.css" th:href="@{/css/outlines.css}">
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script src="/js/createTable.js"></script>
+    <script src="/js/pageLoad.js"></script>
+    <title>Профиль - SoundStats</title>
+</head>
+
+<body class="page page_header_fixed">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<main class="main">
+    <div class="main__inner">
+        <div class="page-desc">
+            <h1 class="page-desc__header">
+                Профиль
+            </h1>
+            <article class="profile">
+                <img src="../static/images/profile.svg" th:src="${#authentication.principal.avatarUrl} ?: '/images/profile.svg'" alt="" class="profile__image">
+                <div class="profile__text" th:text="${#authentication.principal.userName}">
+                    User name
+                </div>
+                <div class="profile__button">
+                    <a class="button button_accent" th:href="@{/logout}">
+                        <b class="button__text">Выйти</b>
+                    </a>
+                </div>
+            </article>
+            <article class="playlists">
+                <h2 class="playlists__header">
+                    Ваши плейлисты
+                </h2>
+                <div class="playlists__desc">
+                    Ваши плейлисты, когда-либо созданные через сервис. Нажатием на плейлист вы можете восстановить его
+                </div>
+                <iframe name="dummy" id="dummy" style="display: none;"></iframe>
+                <form th:action="@{/api/playlists/restore}" method="post" target="dummy">
+                    <div class="playlists__container">
+                        <section class="playlists__item playlist" th:each="playlist : ${playlists}">
+                            <img class="playlist__icon" src="../static/images/playlist_icon.svg" th:src="@{/images/playlist_icon.svg}">
+                            <div class="playlist__info" th:text="${playlist.name}">
+                                A very very very long playlist name
+                            </div>
+                            <div class="playlist__date" th:text="${playlist.date}">
+                                Date
+                            </div>
+                            <button type="submit" th:value="${playlist.id}" th:name="id" class="button button_primary">
+                                <b class="button__text">Восстановить</b>
+                            </button>
+                        </section>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+
+</html>

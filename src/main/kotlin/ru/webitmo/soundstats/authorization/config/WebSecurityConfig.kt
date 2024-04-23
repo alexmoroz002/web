@@ -42,6 +42,12 @@ class WebSecurityConfig(val customUserService : UsersAuthService) {
             oauth2Login {
                 userInfoEndpoint { userService = oauth2UserService() }
             }
+            logout {
+                logoutSuccessUrl = "/"
+                permitAll
+                invalidateHttpSession
+                clearAuthentication
+            }
             csrf { disable() }
             oauth2Client {  }
         }

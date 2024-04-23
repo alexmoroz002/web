@@ -68,7 +68,6 @@ class SpotifyService(private val webClient: WebClient) {
 
     suspend fun addItemsToPlaylist(playlist : PlaylistDto, tracks : List<TrackDto>) {
         val uri = "https://api.spotify.com/v1/playlists/${playlist.id}/tracks?uris=${tracks.joinToString(",") { it.uri }}"
-        println(uri)
         webClient.post()
             .uri(uri)
             .retrieve()

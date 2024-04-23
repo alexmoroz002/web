@@ -24,6 +24,11 @@
     color: var(--text);
 }
 
+.button_accent {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
 .button__icon {
     float: left;
     height: 21px;

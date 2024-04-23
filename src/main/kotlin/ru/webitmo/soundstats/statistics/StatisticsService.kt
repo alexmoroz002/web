@@ -1,13 +1,10 @@
 package ru.webitmo.soundstats.statistics
 
 import org.springframework.stereotype.Service
-import ru.webitmo.soundstats.playlists.entities.Artist
-import ru.webitmo.soundstats.playlists.entities.Track
 import ru.webitmo.soundstats.spotify.SpotifyService
 import ru.webitmo.soundstats.spotify.dto.ArtistDto
 import ru.webitmo.soundstats.spotify.dto.SingleTrackFeaturesDto
 import ru.webitmo.soundstats.spotify.dto.TrackDto
-import ru.webitmo.soundstats.spotify.dto.TrackFeaturesDto
 
 @Service
 class StatisticsService(val spotifyService: SpotifyService) {

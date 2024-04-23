@@ -11,8 +11,8 @@
             integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-    <script src="/js/createTable.js"></script>
-    <script src="/js/statistics.js" th:src="@{/js/statistics.js}"></script>
+    <script src="../static/js/createTable.js" th:src="@{/js/createTable.js}"></script>
+    <script src="../static/js/statistics.js" th:src="@{/js/statistics.js}"></script>
     <title>Статистика - SoundStats</title>
 </head>
 <body class="page page_header_fixed">
@@ -38,7 +38,7 @@
                     <tr>
                         <td>
                             <div class="overlay" id="preloader-artists">
-                                <img src="images/loading.gif" height="100">
+                                <img src="../static/images/loading.gif" th:src="@{/images/loading.gif}" height="100">
                                 <p>Загрузка</p>
                             </div>
                         </td>
@@ -67,7 +67,7 @@
                     <tr>
                         <td>
                             <div class="overlay" id="preloader-tracks">
-                                <img src="images/loading.gif" height="100">
+                                <img src="../static/images/loading.gif" th:src="@{/images/loading.gif}" height="100">
                                 <p>Загрузка</p>
                             </div>
                         </td>
