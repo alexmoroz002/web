@@ -44,10 +44,15 @@
     font-size: 0.9rem;
 }
 
-.button:hover {
+.button:enabled:hover {
     filter: brightness(95%);
 }
 
-.button:active {
+.button:enabled:active {
     filter: brightness(85%);
+}
+
+.button:disabled {
+    filter: opacity(40%);
+    cursor: not-allowed;
 }

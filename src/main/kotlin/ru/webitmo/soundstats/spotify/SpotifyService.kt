@@ -73,4 +73,16 @@ class SpotifyService(private val webClient: WebClient) {
             .retrieve()
             .awaitBody<Any>()
     }
+
+    suspend fun getAverageFeatures(tracks : List<TrackDto>) : SingleTrackFeaturesDto {
+        val features = getTracksFeatures(tracks).data
+        return SingleTrackFeaturesDto(
+            features.map { it.acousticness }.average(),
+            features.map { it.danceability }.average(),
+            features.map { it.energy }.average(),
+            features.map { it.instrumentalness }.average(),
+            features.map { it.speechiness }.average(),
+            features.map { it.valence }.average()
+        )
+    }
 }

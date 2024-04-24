@@ -26,14 +26,6 @@ class StatisticsService(val spotifyService: SpotifyService) {
 
     suspend fun getTopFeatures() : SingleTrackFeaturesDto {
         val tracks = spotifyService.getUserTopTracks(50).items
-        val features = spotifyService.getTracksFeatures(tracks).data
-        return SingleTrackFeaturesDto(
-            features.map { it.acousticness }.average(),
-            features.map { it.danceability }.average(),
-            features.map { it.energy }.average(),
-            features.map { it.instrumentalness }.average(),
-            features.map { it.speechiness }.average(),
-            features.map { it.valence }.average()
-        )
+        return spotifyService.getAverageFeatures(tracks)
     }
 }

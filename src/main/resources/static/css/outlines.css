@@ -151,12 +151,17 @@
   font-size: 0.9rem;
 }
 
-.button:hover {
+.button:enabled:hover {
   filter: brightness(95%);
 }
 
-.button:active {
+.button:enabled:active {
   filter: brightness(85%);
+}
+
+.button:disabled {
+  filter: opacity(40%);
+  cursor: not-allowed;
 }
 
 .ham-menu {
@@ -421,6 +426,10 @@
   margin: 0.5rem 0;
   color: var(--accent-alt);
   font-style: italic;
+}
+
+.generator__form {
+  display: contents;
 }
 
 .stats-container {

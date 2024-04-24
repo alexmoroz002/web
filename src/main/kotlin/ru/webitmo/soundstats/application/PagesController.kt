@@ -32,7 +32,7 @@ class PagesController(val playlistsService: PlaylistsService) {
     @GetMapping("/me")
     suspend fun getProfile(model : Model) : String {
         val user = SecurityContextHolder.getContext().authentication.name
-        model.addAttribute("playlists", playlistsService.getPlaylists(user))
+        model.addAttribute("playlists", playlistsService.getPlaylists(user).asReversed())
         return "me"
     }
 
