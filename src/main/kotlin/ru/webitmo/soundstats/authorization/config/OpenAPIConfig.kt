@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @OpenAPIDefinition(
-    info = Info(title = "Application REST API", description = "My application REST API", version = "0.0.1")
+    info = Info(title = "SoundStats API", description = "SoundStats application API", version = "0.1a")
 )
 @SecurityScheme(name = "authorization", type = SecuritySchemeType.OAUTH2,
     flows = OAuthFlows(
