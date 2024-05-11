@@ -8,8 +8,8 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
-import java.time.Instant
-import java.util.Date
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Entity
 @Table(name = "playlists")
@@ -20,9 +20,14 @@ data class Playlist (
     @Column(name = "user_id")
     var userId : String,
     var description : String = "",
-    var date : Date = Date.from(Instant.now()),
+    var date : LocalDateTime = LocalDateTime.now(),
     @ManyToMany(cascade = [CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST])
     @JoinTable(name = "playlists_tracks", joinColumns = [JoinColumn(name = "playlist_id")],
         inverseJoinColumns = [JoinColumn(name = "track_id")])
     var tracks : Set<Track> = emptySet(),
-)
+) {
+    val formattedDate : String get() {
+        val formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd.MM.YYYY")
+        return date.format(formatter)
+    }
+}

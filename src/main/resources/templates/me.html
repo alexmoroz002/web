@@ -53,7 +53,7 @@
                             <div class="playlist__info" th:text="${playlist.name}">
                                 A very very very long playlist name
                             </div>
-                            <div class="playlist__date" th:text="${playlist.date}">
+                            <div class="playlist__date" th:text="${playlist.formattedDate}">
                                 Date
                             </div>
                             <button type="submit" th:value="${playlist.id}" th:name="id" class="button button_primary">
