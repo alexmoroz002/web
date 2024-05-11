@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../static/css/outlines.css" th:href="@{/css/outlines.css}">
     <link rel="icon" type="image/x-icon" href="../static/images/logo.svg" th:href="@{/images/logo.svg}">
     <script src="../static/js/pageLoad.js" th:src="@{/js/pageLoad.js}"></script>
+    <script src="https://kit.fontawesome.com/a272bdb78e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/notifications/style.css" th:href="@{/notifications/style.css}">
+    <script src="/static/notifications/index.var.js" th:src="@{/notifications/index.var.js}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/js/notifications.js" th:src="@{/js/notifications.js}"></script>
     <title>Плейлисты - SoundStats</title>
 </head>
 <body class="page page_header_fixed">
@@ -24,7 +29,6 @@
                 не прослушанным используя самые разные алгоритмы
             </div>
         </div>
-        <iframe name="dummy" id="dummy" style="display: none;"></iframe>
         <article class="flex-list">
             <h2 class="flex-list__header">Стандартные алгоритмы</h2>
             <section class="flex-list__item generator">
@@ -35,7 +39,7 @@
                     Базовые рекомендации от алгоритмов Spotify на основе 50 Ваших наиболее прослушиваемых треков за
                     последние 6 месяцев. В будущем может появиться настройка параметров
                 </p>
-                <form class="generator__form" th:action="@{/api/playlists/create/personal}" th:method="post" target="dummy">
+                <form class="generator__form" th:action="@{/api/playlists/create/personal}" th:method="post">
                     <button type='submit' class="generator__button button button_primary">
                         <span class="button__text">Создать</span>
                     </button>
@@ -49,7 +53,7 @@
                     Название говорит само за себя - позволяет создавать плейлист на основе самых популярных треков в мире, используя алгоритмы
                     Spotify. Зачем - понятия не имею, почему бы и нет
                 </p>
-                <form class="generator__form" th:action="@{/api/playlists/create/world}" th:method="post" target="dummy">
+                <form class="generator__form" th:action="@{/api/playlists/create/world}" th:method="post">
                     <button type='submit' class="generator__button button button_primary">
                         <span class="button__text">Создать</span>
                     </button>
@@ -62,7 +66,7 @@
                 <p class="generator__info">
                     Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
                 </p>
-                <form class="generator__form" th:action="@{/api/playlists/create/artists}" th:method="post" target="dummy">
+                <form class="generator__form" th:action="@{/api/playlists/create/artists}" th:method="post">
                     <button type='submit' class="generator__button button button_primary">
                         <span class="button__text">Создать</span>
                     </button>

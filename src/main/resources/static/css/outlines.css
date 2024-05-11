@@ -2,14 +2,11 @@
   color: var(--text);
   background-color: var(--background);
   font-family: "Trebuchet MS", sans-serif;
+  margin: 0;
 }
 
 .page__header {
   padding: 10px 20px;
-}
-
-.page_header_fixed {
-  margin: 100px 0 0 0;
 }
 
 .page__footer {
@@ -34,7 +31,7 @@
 }
 
 .header_fixed {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
 }
@@ -290,6 +287,7 @@
 
 .table__cell {
   padding: 7px 10px;
+  overflow-wrap: anywhere;
 }
 
 .table__cover-img {

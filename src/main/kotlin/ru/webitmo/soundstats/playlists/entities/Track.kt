@@ -8,5 +8,7 @@ import jakarta.persistence.Table
 @Table(name = "tracks")
 data class Track (
     @Id
-    var id : String
+    var id : String,
+    var name : String,
+    var cover : String?
 )

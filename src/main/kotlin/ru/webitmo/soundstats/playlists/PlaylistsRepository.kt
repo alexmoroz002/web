@@ -7,6 +7,6 @@ import ru.webitmo.soundstats.playlists.entities.Playlist
 
 @Repository
 interface PlaylistsRepository : JpaRepository<Playlist, String> {
-    @Query("select p from Playlist p where p.userId=?1")
+    @Query("select p from Playlist p left join fetch p.tracks where p.userId=?1 ")
     fun getAllByUserId(user : String) : List<Playlist>
 }
