@@ -2,14 +2,11 @@
   color: var(--text);
   background-color: var(--background);
   font-family: "Trebuchet MS", sans-serif;
+  margin: 0;
 }
 
 .page__header {
   padding: 10px 20px;
-}
-
-.page_header_fixed {
-  margin: 100px 0 0 0;
 }
 
 .page__footer {
@@ -34,7 +31,7 @@
 }
 
 .header_fixed {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
 }
@@ -131,6 +128,11 @@
   color: var(--text);
 }
 
+.button_accent {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
 .button__icon {
   float: left;
   height: 21px;
@@ -146,12 +148,17 @@
   font-size: 0.9rem;
 }
 
-.button:hover {
+.button:enabled:hover {
   filter: brightness(95%);
 }
 
-.button:active {
+.button:enabled:active {
   filter: brightness(85%);
+}
+
+.button:disabled {
+  filter: opacity(40%);
+  cursor: not-allowed;
 }
 
 .ham-menu {
@@ -280,6 +287,7 @@
 
 .table__cell {
   padding: 7px 10px;
+  overflow-wrap: anywhere;
 }
 
 .table__cover-img {
@@ -418,6 +426,10 @@
   font-style: italic;
 }
 
+.generator__form {
+  display: contents;
+}
+
 .stats-container {
   display: grid;
   grid-template-areas: "top-artists tracks-analysis" "top-tracks top-tracks" "top-genres like-tracks " "like-artists like-tracks";
@@ -489,6 +501,61 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+}
+
+.playlist__icon {
+  aspect-ratio: 1;
+  height: 250px;
+}
+
+.playlist__info {
+  font-size: 17pt;
+}
+
+.playlist__date {
+  font-size: 13pt;
+  color: var(--text-secondary);
+}
+
+.playlist {
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--secondary);
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.playlists__container {
+  padding: 20px 0;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.profile__image {
+  border: solid var(--accent) 1px;
+  border-radius: 100%;
+  height: 20vw;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.profile__text {
+  margin-right: auto;
+  align-self: end;
+  padding: 10px 20px;
+  font-size: min(5vw, 60pt);
 }
 
 .footer {

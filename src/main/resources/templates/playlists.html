@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="stylesheet" href="css/outlines.css">
-    <link rel="icon" type="image/x-icon" href="/images/logo.svg">
-    <script src="js/pageLoad.js"></script>
-    <script src="js/playlists.js"></script>
+    <link rel="stylesheet" href="../static/css/outlines.css" th:href="@{/css/outlines.css}">
+    <link rel="icon" type="image/x-icon" href="../static/images/logo.svg" th:href="@{/images/logo.svg}">
+    <script src="../static/js/pageLoad.js" th:src="@{/js/pageLoad.js}"></script>
+    <script src="https://kit.fontawesome.com/a272bdb78e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/notifications/style.css" th:href="@{/notifications/style.css}">
+    <script src="/static/notifications/index.var.js" th:src="@{/notifications/index.var.js}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/static/js/notifications.js" th:src="@{/js/notifications.js}"></script>
     <title>Плейлисты - SoundStats</title>
 </head>
 <body class="page page_header_fixed">
@@ -34,10 +39,40 @@
                     Базовые рекомендации от алгоритмов Spotify на основе 50 Ваших наиболее прослушиваемых треков за
                     последние 6 месяцев. В будущем может появиться настройка параметров
                 </p>
-                <button type='button' class="generator__button button button_primary" id="base-gen" onclick="baseGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
+                <form class="generator__form" th:action="@{/api/playlists/create/personal}" th:method="post">
+                    <button type='submit' class="generator__button button button_primary">
+                        <span class="button__text">Создать</span>
+                    </button>
+                </form>
             </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Рекомендации на основе самых популярных треков
+                </h3>
+                <p class="generator__info">
+                    Название говорит само за себя - позволяет создавать плейлист на основе самых популярных треков в мире, используя алгоритмы
+                    Spotify. Зачем - понятия не имею, почему бы и нет
+                </p>
+                <form class="generator__form" th:action="@{/api/playlists/create/world}" th:method="post">
+                    <button type='submit' class="generator__button button button_primary">
+                        <span class="button__text">Создать</span>
+                    </button>
+                </form>
+            </section>
+            <section class="flex-list__item generator">
+                <h3 class="generator__header">
+                    Рекомендации по любимым исполнителям
+                </h3>
+                <p class="generator__info">
+                    Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
+                </p>
+                <form class="generator__form" th:action="@{/api/playlists/create/artists}" th:method="post">
+                    <button type='submit' class="generator__button button button_primary">
+                        <span class="button__text">Создать</span>
+                    </button>
+                </form>
+            </section>
+            <h2 class="flex-list__header">Тестовые алгоритмы</h2>
             <section class="flex-list__item generator">
                 <h3 class="generator__header">
                     Smartify (Old) Lite
@@ -46,15 +81,17 @@
                     Облегченная первая версии одного из (субъективно) лучших алгоритмов для создания плейлистов от ув.
                     <a href="https://4pda.to/forum/index.php?showuser=62879" class="link">Bedmit</a>
                     с форума <a href="https://4pda.to/forum/index.php?showtopic=715234&st=12120#entry85544903" class="link">4PDA</a>.
-                    В отличие от оригинала, из-за некоторых ограничений не ведет статистику
+                    В отличие от оригинала, не ведет статистику
                     прослушанных треков, что несколько снижает точность. Тем не менее, это значительно повышает стабильность, а
                     алгоритм все так же отлично подбирает треки
                 </p>
-                <button type='button' class="generator__button button button_primary" id="smartify-gen" onclick="smartifyGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
+                <p class="generator__status">TBD</p>
+                <form class="generator__form" target="dummy">
+                    <button type='button' class="generator__button button button_primary" disabled>
+                        <span class="button__text">Создать</span>
+                    </button>
+                </form>
             </section>
-            <h2 class="flex-list__header">Тестовые алгоритмы</h2>
             <section class="flex-list__item generator">
                 <h3 class="generator__header">
                     EveryDayMix Lite
@@ -65,35 +102,12 @@
                     позволяет вести историю прослушиваний из-за особенностей API, что в теории может отразиться на точности, но убирает
                     вызываемые этим сбои в работе
                 </p>
-                <p class="generator__status">Стабилен, но необходимо дальнейшее тестирование</p>
-                <button type='button' class="generator__button button button_primary" id="everydaymix-gen" onclick="everydaymixGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
-            </section>
-            <section class="flex-list__item generator">
-                <h3 class="generator__header">
-                    Рекомендации на основе самых популярных треков
-                </h3>
-                <p class="generator__info">
-                    Название говорит само за себя - позволяет создавать плейлист на основе самых популярных треков в мире, используя алгоритмы
-                    Spotify. Зачем - понятия не имею, почему бы и нет
-                </p>
-                <p class="generator__status">Не тестировался</p>
-                <button type='button' class="generator__button button button_primary" id="most-pop-gen" onclick="mostPopularGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
-            </section>
-            <section class="flex-list__item generator">
-                <h3 class="generator__header">
-                    Рекомендации по любимым исполнителям
-                </h3>
-                <p class="generator__info">
-                    Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
-                </p>
-                <p class="generator__status">Не тестировался</p>
-                <button type='button' class="generator__button button button_primary" id="loved-art-gen" onclick="likedArtistsGenerator()">
-                    <span class="button__text">Создать</span>
-                </button>
+                <p class="generator__status">TBD</p>
+                <form class="generator__form" target="dummy">
+                    <button type='button' class="generator__button button button_primary" disabled>
+                        <span class="button__text">Создать</span>
+                    </button>
+                </form>
             </section>
         </article>
     </div>

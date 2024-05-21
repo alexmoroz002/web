@@ -1,4 +1,4 @@
-package ru.webitmo.soundstats.authorization
+package ru.webitmo.soundstats.authorization.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.invoke
 import org.springframework.security.web.SecurityFilterChain
+import ru.webitmo.soundstats.authorization.SpotifyTokenIntrospector
 
 @Configuration
 @EnableWebSecurity
@@ -25,6 +26,7 @@ class ResourceServerConfig {
                     introspector = SpotifyTokenIntrospector()
                 }
             }
+            csrf { disable() }
         }
         return http.build()
     }

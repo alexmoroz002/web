@@ -11,6 +11,7 @@
             integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+    <script src="../static/js/createTable.js" th:src="@{/js/createTable.js}"></script>
     <script src="../static/js/statistics.js" th:src="@{/js/statistics.js}"></script>
     <title>Статистика - SoundStats</title>
 </head>
@@ -33,19 +34,13 @@
             <div class="stats-container__item stats-container__top-artists">
                 <h2 class="stats-container__item-header">Любимые исполнители</h2>
                 <table class="table table_inner">
-                    <tbody>
-                    <tr th:each="artist : ${artists}" class="table__row">
-                        <td class="table__cell table__cover">
-                            <img th:src="${artist.coverUrl}" src="../static/images/placeholder.svg" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__cell table__info">
-                            <p class="table__info-primary" th:text="${artist.name}">Artist</p>
-                        </td>
-                        <td class="table__cell table__link">
-                            <a th:href="@{'https://open.spotify.com/artist/' + ${artist.id}}" class="button button_primary button_iconed">
-                                <img src="../static/images/spotify_icon_alt.svg" th:src="@{/images/spotify_icon_alt.svg}" alt="" class="button__icon">
-                                <span class="button__text">Открыть</span>
-                            </a>
+                    <tbody id="user-top-artists">
+                    <tr>
+                        <td>
+                            <div class="overlay" id="preloader-artists">
+                                <img src="../static/images/loading.gif" th:src="@{/images/loading.gif}" height="100">
+                                <p>Загрузка</p>
+                            </div>
                         </td>
                     </tr>
                     </tbody>
@@ -68,21 +63,13 @@
                         <th class="table__cell">Ссылка</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr th:each="track, iter : ${tracks}" class="table__row">
-                        <td class="table__index table__cell" th:text="${iter.count}">1</td>
-                        <td class="table__cover table__cell">
-                            <img th:src="${track.coverUrl}" src="../static/images/placeholder.svg" class="table__cover-img" alt="">
-                        </td>
-                        <td class="table__info table__cell">
-                            <p class="table__info-primary" th:text="${track.name}">Track</p>
-                            <p class="table__info-secondary" th:text="${track.artists}">Artist</p>
-                        </td>
-                        <td class="table__link table__cell">
-                            <a th:href="@{'https://open.spotify.com/track/' + ${track.id}}" class="button button_primary button_iconed">
-                                <img src="../static/images/spotify_icon_alt.svg" th:src="@{/images/spotify_icon_alt.svg}" alt="" class="button__icon">
-                                <span class="button__text">Открыть в Spotify</span>
-                            </a>
+                    <tbody id="user-top-tracks">
+                    <tr>
+                        <td>
+                            <div class="overlay" id="preloader-tracks">
+                                <img src="../static/images/loading.gif" th:src="@{/images/loading.gif}" height="100">
+                                <p>Загрузка</p>
+                            </div>
                         </td>
                     </tr>
                     </tbody>

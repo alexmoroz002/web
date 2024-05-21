@@ -1,18 +1,11 @@
 window.addEventListener('DOMContentLoaded', async () => {
-    // Токен действует 1 час после получения, к моменту проверки он скорее всего истек (:
-    const token = "BQDCncrJGkWw4ZIgV3hazE80S82tk7cyQbL3cfeP2FwEeS68-y6aa24aKcv3XorO7cHJKjCGqdZueLH0Gt6WNfeWa6bs9jwrdqK3uMUwnBrewupxQGM"
-    const table = document.getElementById('top-tracks-table')
     const overlay = document.getElementById('preloader')
-    if (!table || !overlay)
+    if (!overlay)
         return
-    table.classList.add('table_loading')
     overlay.style.visibility = 'visible'
     try {
-        const response = await fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbNG2KDcFcKOF/tracks?market=BR&limit=5', {
-            method: 'GET',
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
+        const response = await fetch('/api/spotify/top?limit=5', {
+            method: 'GET'
         });
         const responseData = await response.json();
         if (!response.ok)
@@ -23,66 +16,13 @@ window.addEventListener('DOMContentLoaded', async () => {
             name: item.track.name,
             cover : (item.track.album.images[0]).url,
             artists : item.track.artists.map((art) => {return art.name}),
-            url : item.track.external_urls.spotify,
+            url : item.track.url,
         }))
-        const tableBody = document.getElementById('top-tracks-tb')
-        if (!tableBody)
-            return
-        tracks.forEach((track) => {
-            const row = document.createElement('tr')
-            row.classList.add('table__row')
-
-            const index = document.createElement('td')
-            index.classList.add('table__cell', 'table__index')
-            index.innerText = track.index.toString()
-            row.appendChild(index)
-
-            const coverContainer = document.createElement('td')
-            coverContainer.classList.add('table__cell', 'table__cover')
-            const cover = document.createElement('img')
-            cover.classList.add('table__cover-img')
-            cover.src = track.cover
-            cover.alt = 'cover'
-            coverContainer.appendChild(cover)
-            row.appendChild(coverContainer)
-
-            const info = document.createElement('td')
-            info.classList.add('table__cell', 'table__info')
-            const name = document.createElement('p')
-            name.classList.add('table__info-primary')
-            name.innerText = track.name
-            const artists = document.createElement('p')
-            artists.classList.add('table__info-secondary')
-            artists.innerText = track.artists.join(', ')
-            info.appendChild(name)
-            info.appendChild(artists)
-            row.appendChild(info)
-
-            const linkContainer = document.createElement('td')
-            linkContainer.classList.add('table__cell', 'table__link')
-            const link = document.createElement('a')
-            link.classList.add('button', 'button_primary', 'button_iconed')
-            link.href = track.url
-            const linkIcon = document.createElement('img')
-            linkIcon.classList.add('button__icon')
-            linkIcon.src = 'images/spotify_icon_alt.svg'
-            linkIcon.alt = 'icon'
-            const linkText = document.createElement('span')
-            linkText.classList.add('button__text')
-            linkText.innerText = 'Открыть в Spotify'
-            link.appendChild(linkIcon)
-            link.appendChild(linkText)
-            linkContainer.appendChild(link)
-            row.appendChild(linkContainer)
-
-            tableBody.appendChild(row)
-        })
+        createTable('top-tracks-tb', tracks)
         overlay.style.visibility = 'hidden'
-        table.classList.remove('table_loading')
     } catch (error) {
         console.log(error)
         overlay.firstElementChild.src = '/images/error.svg'
         overlay.lastElementChild.innerText = error
-        table.classList.add('table_error')
     }
 })

@@ -24,6 +24,11 @@
     color: var(--text);
 }
 
+.button_accent {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
 .button__icon {
     float: left;
     height: 21px;
@@ -39,10 +44,15 @@
     font-size: 0.9rem;
 }
 
-.button:hover {
+.button:enabled:hover {
     filter: brightness(95%);
 }
 
-.button:active {
+.button:enabled:active {
     filter: brightness(85%);
+}
+
+.button:disabled {
+    filter: opacity(40%);
+    cursor: not-allowed;
 }
