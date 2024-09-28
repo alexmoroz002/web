@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
+import ru.webitmo.soundstats.playlists.algorithms.PlaylistCreation
 import ru.webitmo.soundstats.playlists.dto.MessageResponse
 import ru.webitmo.soundstats.playlists.entities.Playlist
 import ru.webitmo.soundstats.playlists.entities.Track
@@ -15,40 +16,16 @@ import ru.webitmo.soundstats.spotify.dto.PlaylistInfoDto
 import ru.webitmo.soundstats.spotify.dto.TrackDto
 
 @Service
-class PlaylistsService(private val spotifyService: SpotifyService, private val repo: PlaylistsRepository) {
-    suspend fun createWorldTopPlaylist() : ResponseEntity<MessageResponse> {
-        val user = SecurityContextHolder.getContext().authentication.name
-        val topTracks = spotifyService.getWorldTop(20).items.map { it.track }
-        val recs = spotifyService.getRecommendations(20, tracks = topTracks.shuffled().take(5))
-        val tracks = recs.tracks.map { Track(it.id, it.name, it.album?.images?.first()?.url) }
-        val playlistDto = spotifyService.createPlaylist(user, PlaylistInfoDto("World Top", "SoundStats recommendations playlist"))
-        spotifyService.addItemsToPlaylist(playlistDto, recs.tracks)
-        withContext(Dispatchers.IO) {
-            persistPlaylist(user, playlistDto, tracks)
-        }
-        return ResponseEntity(MessageResponse(HttpStatus.CREATED.value(), playlistDto.url), HttpStatus.OK)
-    }
+class PlaylistsService(private val spotifyService: SpotifyService, private val repo: PlaylistsRepository, private val algos : Map<String, PlaylistCreation>) {
 
-    suspend fun createFeaturesPlaylist() : ResponseEntity<MessageResponse> {
+    suspend fun createPlaylist(algoName : String) : ResponseEntity<MessageResponse> {
         val user = SecurityContextHolder.getContext().authentication.name
-        val userTopTracks = spotifyService.getUserTopTracks(50).items
-        val tracksFeatures = spotifyService.getAverageFeatures(userTopTracks)
-        val recs = spotifyService.getRecommendations(20, tracks = userTopTracks.take(20).shuffled().take(5), features = tracksFeatures)
-        val tracks = recs.tracks.map { Track(it.id, it.name, it.album?.images?.first()?.url) }
-        val playlistDto = spotifyService.createPlaylist(user, PlaylistInfoDto("Personal Top", "SoundStats recommendations playlist"))
-        spotifyService.addItemsToPlaylist(playlistDto, recs.tracks)
-        withContext(Dispatchers.IO) {
-            persistPlaylist(user, playlistDto, tracks)
-        }
-        return ResponseEntity(MessageResponse(HttpStatus.CREATED.value(), playlistDto.url), HttpStatus.OK)
-    }
 
-    suspend fun createArtistsPlaylist() : ResponseEntity<MessageResponse> {
-        val user = SecurityContextHolder.getContext().authentication.name
-        val topArtists = spotifyService.getUserTopArtists(10).items.shuffled().take(5)
-        val recs = spotifyService.getRecommendations(20, artists = topArtists)
+        val algorithm = algos.getOrDefault(algoName, null)
+            ?: return ResponseEntity(MessageResponse(HttpStatus.NOT_FOUND.value(), "Unknown algorithm $algoName"), HttpStatus.NOT_FOUND)
+        val (name, recs) = algorithm.execute()
         val tracks = recs.tracks.map { Track(it.id, it.name, it.album?.images?.first()?.url) }
-        val playlistDto = spotifyService.createPlaylist(user, PlaylistInfoDto("Artists Top", "SoundStats recommendations playlist"))
+        val playlistDto = spotifyService.createPlaylist(user, PlaylistInfoDto(name, "SoundStats recommendations playlist"))
         spotifyService.addItemsToPlaylist(playlistDto, recs.tracks)
         withContext(Dispatchers.IO) {
             persistPlaylist(user, playlistDto, tracks)

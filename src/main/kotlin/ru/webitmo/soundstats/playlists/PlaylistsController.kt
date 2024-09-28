@@ -17,18 +17,10 @@ import ru.webitmo.soundstats.statistics.StatisticsService
 @Tag(name = "Playlists", description = "Modify Spotify playlists")
 @SecurityRequirement(name = "authorization")
 class PlaylistsController(private val service: PlaylistsService) {
-    @PostMapping("/create/world")
-    suspend fun createPlaylistWorld() : ResponseEntity<MessageResponse> {
-        return service.createWorldTopPlaylist()
-    }
-    @PostMapping("/create/personal")
-    suspend fun createPlaylistPersonal() : ResponseEntity<MessageResponse> {
-        return service.createFeaturesPlaylist()
-    }
 
-    @PostMapping("/create/artists")
-    suspend fun createPlaylistArtists() : ResponseEntity<MessageResponse> {
-        return service.createArtistsPlaylist()
+    @PostMapping("/create")
+    suspend fun createPlaylist(@RequestParam method : String) : ResponseEntity<MessageResponse> {
+        return service.createPlaylist(method)
     }
 
     @PostMapping("/restore")
