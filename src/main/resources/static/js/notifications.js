@@ -19,7 +19,7 @@ document.addEventListener("submit", (e) => {
             n.success(`Плейлист успешно создан`)
         },
         resp => {
-            n.alert(`Произошла ошибка ${resp.response.status}`)
+            n.alert(`Произошла ошибка ${resp.response.status}\n${resp.response.body}`)
         }
     )
 })

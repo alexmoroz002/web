@@ -37,10 +37,10 @@
                 </h3>
                 <p class="generator__info">
                     Базовые рекомендации от алгоритмов Spotify на основе 50 Ваших наиболее прослушиваемых треков за
-                    последние 6 месяцев. В будущем может появиться настройка параметров
+                    последние 6 месяцев
                 </p>
-                <form class="generator__form" th:action="@{/api/playlists/create/personal}" th:method="post">
-                    <button type='submit' class="generator__button button button_primary">
+                <form class="generator__form" th:action="@{/api/playlists/create}" th:method="post">
+                    <button type='submit' th:value="personal" th:name="method" class="generator__button button button_primary">
                         <span class="button__text">Создать</span>
                     </button>
                 </form>
@@ -51,10 +51,10 @@
                 </h3>
                 <p class="generator__info">
                     Название говорит само за себя - позволяет создавать плейлист на основе самых популярных треков в мире, используя алгоритмы
-                    Spotify. Зачем - понятия не имею, почему бы и нет
+                    Spotify
                 </p>
-                <form class="generator__form" th:action="@{/api/playlists/create/world}" th:method="post">
-                    <button type='submit' class="generator__button button button_primary">
+                <form class="generator__form" th:action="@{/api/playlists/create}" th:method="post">
+                    <button type='submit' th:value="world" th:name="method" class="generator__button button button_primary">
                         <span class="button__text">Создать</span>
                     </button>
                 </form>
@@ -66,8 +66,8 @@
                 <p class="generator__info">
                     Позволяет создавать плейлисты с рекомендациями по Вашим любимым исполнителям. Использует алгоритмы Spotify
                 </p>
-                <form class="generator__form" th:action="@{/api/playlists/create/artists}" th:method="post">
-                    <button type='submit' class="generator__button button button_primary">
+                <form class="generator__form" th:action="@{/api/playlists/create}" th:method="post">
+                    <button type='submit' th:value="artists" th:name="method" class="generator__button button button_primary">
                         <span class="button__text">Создать</span>
                     </button>
                 </form>

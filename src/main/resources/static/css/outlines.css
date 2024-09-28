@@ -546,7 +546,7 @@
 .profile__image {
   border: solid var(--accent) 1px;
   border-radius: 100%;
-  height: 20vw;
+  height: 17vw;
   aspect-ratio: 1;
   object-fit: cover;
 }

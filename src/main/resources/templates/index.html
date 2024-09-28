@@ -52,7 +52,7 @@
             </table>
         </article>
 
-        <article class="flex-list">
+        <article class="flex-list" sec:authorize="!isAuthenticated()">
             <h2 class="flex-list__header">Особенности</h2>
             <article class="flex-list__item feature">
                 <div class="feature__info">Просматривайте свои наиболее прослушиваемые треки и исполнителей</div>
